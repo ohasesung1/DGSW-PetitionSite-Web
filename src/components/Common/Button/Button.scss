@@ -1,0 +1,159 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+$background_color_transparent: 0.85;
+
+$outline_color: rgba($soda_primary, $background_color_transparent);
+$outline_secondary_color: rgba($bamboo_primary, $background_color_transparent);
+$outline_tertiary_color: rgba($soda_primary, $background_color_transparent);
+$outline_red_color: rgba($error, $background_color_transparent);
+
+@mixin buttonBasic ($font_color, $background_color) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 5.5em !important;
+  height: auto;
+  border: 0;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: $font_color;
+  background-color: $background_color;
+  transition: all 0.15s ease-in-out;
+}
+
+@mixin buttonEvent ($event_color) {
+  &:hover {
+    box-shadow: 0.19rem 0.19rem rgba($event_color, 0.2);
+  }
+
+  &:active {
+    background-color: rgba($event_color, 1);
+  }
+}
+
+@mixin outlineButton ($border_color) {
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: $border_color;
+}
+
+@mixin outlineButtonEvent ($hover_color, $active_color) {
+  &:hover {
+    color: $white;
+    background-color: $hover_color;
+    border-color: transparent;
+  }
+
+  &:active {
+    background-color: rgba($active_color, 1);
+  }
+}
+
+.button {
+  &-content {
+    width: 100%;
+    font-size: $font_size_2;
+    display: inline-block;
+    user-select: none;
+    text-align: center;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+  }
+
+  // Primary Btn
+  &-primary {
+    @include buttonBasic($white, rgba($soda_primary, $background_color_transparent));
+    @include buttonEvent($soda_primary);
+  }
+
+  // Secondary Btn
+  &-secondary {
+    @include buttonBasic($white, rgba($bamboo_primary, $background_color_transparent));
+    @include buttonEvent($bamboo_primary);
+  }
+
+  // Tertiary Btn
+  &-tertiary {
+    @include buttonBasic($white, rgba($soda_primary, $background_color_transparent));
+    @include buttonEvent($soda_primary);
+  }
+
+  &-red {
+    @include buttonBasic($white, rgba($error, $background_color_transparent));
+    @include buttonEvent($error);
+  }
+
+  // Outline Btn
+  &-outline {
+    @include buttonBasic($outline_color, transparent);
+    @include outlineButton($outline_color);
+    @include outlineButtonEvent($outline_color, $soda_primary);
+  }
+
+  // Outline Secondary Btn
+  &-outlineSecondary {
+    @include buttonBasic($outline_secondary_color, transparent);
+    @include outlineButton($outline_secondary_color);
+    @include outlineButtonEvent($outline_secondary_color, $bamboo_primary);
+  }
+
+  // Outline Tertiary Btn
+  &-outlineTertiary {
+    @include buttonBasic($outline_tertiary_color, transparent);
+    @include outlineButton($outline_tertiary_color);
+    @include outlineButtonEvent($outline_tertiary_color, $soda_primary);
+  }
+
+  &-outlineRed {
+    @include buttonBasic($outline_red_color, transparent);
+    @include outlineButton($outline_red_color);
+    @include outlineButtonEvent($outline_red_color, $error);
+  }
+
+  // Button Edge Type
+  &-round {
+    border-radius: 2.5px;
+  }
+
+  &-square {
+    border-radius: 0;
+  }
+
+  // loading
+  &-loadingWrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-spin {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      border:dashed 0.1rem;
+      animation-name: spin;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      @keyframes spin {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+    }
+
+    &-content {
+      margin-left: 0.5em;
+      font-size: 1.05rem;
+      &-textType {
+        margin: auto !important;
+      }
+    }
+  }
+}

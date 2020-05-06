@@ -1,0 +1,135 @@
+@import 'styles/typography/typography_scheme.scss';
+
+.SignInTemplate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
+
+  &-title { 
+    font-size: 30px;
+    margin-top: 15%;
+    color: #495057;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+  }
+
+  &-signInContentsBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+    width: 400px;
+    height: 150px;
+    &-idBox {
+      width: 300px;
+      height: 50px;
+
+      &-id {
+        border: 1px solid #dee2e6;
+        width: 100%;
+        height: 100%;
+        padding-left: 16px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        font-size: 16px;
+        outline: 0px;
+      }
+    }
+
+    &-pwBox {
+      width: 300px;
+      height: 50px;
+      margin-top: 5%;
+
+      &-pw {
+        border: 1px solid #dee2e6;
+        width: 100%;
+        height: 100%;
+        padding-left: 16px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        font-size: 16px;
+        outline: 0px;
+      }
+    }
+    &-checkBoxDiv {
+      display: flex;
+      width: 300px;
+      height: 100px;
+      justify-content: flex-end;
+      color: #868e96;
+      margin-top: 20px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+
+      &-checkBox {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  &-buttonBox {
+    display: flex;
+    width: 400px;
+    height: 80px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+    &-loginButtonBox {
+      width: 300px;
+      height: 50px;
+
+      &-loginButton {
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 16px;
+        color: white;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        outline: 0px;
+        cursor: pointer;
+        background-color: #a5d8ff;
+      }
+    }
+
+    &-signUpButtonBox {
+      width: 300px;
+      height: 50px;
+      margin-left: 5%;
+
+      &-signUpButton {
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 16px;
+        color: white;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        outline: 0px;
+        cursor: pointer;
+        background-color: #a5d8ff;
+      }
+    }
+  }
+
+  &-guestButtonBox {
+    margin: 0px 100px auto auto;
+
+    &-guestButton {
+      background-color: white;
+      color: #868e96;
+      font-size: 12px;
+      text-decoration: underline;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      border: none;
+      outline: 0px;
+      cursor: pointer;
+    }
+  }
+}
