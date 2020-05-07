@@ -13,6 +13,13 @@ function App() {
             render={() => <Pages.Sign/>}
             />
       </Switch>
+      <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => <Pages.Petition/>}
+            />
+      </Switch>
       <Modal />
     </>
   );

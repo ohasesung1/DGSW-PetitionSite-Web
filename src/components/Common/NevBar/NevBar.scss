@@ -1,0 +1,10 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.NevBarTemplate {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  // border: 1px solid black;
+}

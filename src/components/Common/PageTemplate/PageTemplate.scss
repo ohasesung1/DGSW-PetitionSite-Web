@@ -1,0 +1,26 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+
+.PageTemplate {
+  width: 100%;
+  min-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid black;
+  &-header {
+    position: fixed;
+    width: 100%;
+    min-width: 1200px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    z-index: 2;
+    border: 1px solid black;
+  }
+}
