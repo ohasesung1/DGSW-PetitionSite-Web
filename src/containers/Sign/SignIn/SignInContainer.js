@@ -16,6 +16,12 @@ const SignInContainer = ({ store, history }) => {
   const [isSesstion, setIsSesstion] = useState(false);
 
   const guestLogin = async () => {
+    localStorage.removeItem('petition-token');
+    sessionStorage.removeItem('petition-token');
+
+    const ls = new SecureLS({ encodingType: 'aes' });
+
+    ls.removeAll();
     history.push('/');
     return;
   }
@@ -42,7 +48,7 @@ const SignInContainer = ({ store, history }) => {
         if (isSesstion) {
           localStorage.setItem('petition-token', response.data.tokenData);
         } else {
-          sessionStorage.setItem('petition-tokan',response.data.tokenData);
+          sessionStorage.setItem('petition-token',response.data.tokenData);
         }
 
         const ls = new SecureLS({ encodingType: 'aes' }); // user info 저장

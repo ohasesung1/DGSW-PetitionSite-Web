@@ -3,6 +3,7 @@ import PropTypes  from 'prop-types';
 import classNames from 'classnames/bind';
 import { withRouter } from 'react-router-dom';
 import NevBar from 'components/Common/NevBar';
+import Footer from 'components/Common/Footer';
 import style from './PageTemplate.scss';
 
 const cx = classNames.bind(style);
@@ -12,6 +13,12 @@ const PageTemplate = ({ url, children }) => {
     <div className={cx('PageTemplate')}>
       <div className={cx('PageTemplate-header')}>
         <NevBar/>
+      </div>
+      <div className={cx('PageTemplate-contents')}>
+        {children}
+      </div>
+      <div className={cx('PageTemplate-bottom')}>
+        <Footer/>
       </div>
     </div>
   );
