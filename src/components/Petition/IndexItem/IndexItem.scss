@@ -15,4 +15,13 @@
   &:hover {
     cursor: pointer;
   }
+
+  &-select {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #003366;
+    color: #003366;
+    font-weight: bold;
+    background-color: white;
+  }
 }

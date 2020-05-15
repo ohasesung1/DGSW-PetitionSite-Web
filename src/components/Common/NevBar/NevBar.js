@@ -85,7 +85,8 @@ const NevBar = ({ url, store, history }) => {
 };
 
 NevBar.propTypes = {
-
+  store: PropTypes.any,
+  history: PropTypes.any
 };
 
 export default inject('store')(observer(withRouter(NevBar)));

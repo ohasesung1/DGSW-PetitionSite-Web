@@ -5,7 +5,7 @@ import style from './PetitionTemplate.scss';
 
 const cx = classNames.bind(style);
 
-const PetitionTemplate = ({ allowedPetitionsItem, allPetitionsItem, indexItemList }) => {
+const PetitionTemplate = ({ allowedPetitionsItem, allPetitionsItem, allowedPetitionIndexItemList, allPetitionsIndexItemList }) => {
   
   return (
     <>
@@ -32,7 +32,7 @@ const PetitionTemplate = ({ allowedPetitionsItem, allPetitionsItem, indexItemLis
         {allowedPetitionsItem}
       </div>
       <div className={cx('PetitionIndexItemTemplate')}>
-        {indexItemList}
+        {allowedPetitionIndexItemList}
       </div>
       <div className={cx('PetitionTemplate')}>
         <div className={cx('PetitionTemplate-header')}>
@@ -57,7 +57,7 @@ const PetitionTemplate = ({ allowedPetitionsItem, allPetitionsItem, indexItemLis
         {allPetitionsItem}
       </div>
       <div className={cx('PetitionIndexItemTemplate')}>
-
+        {allPetitionsIndexItemList}
       </div>
     </>
   );

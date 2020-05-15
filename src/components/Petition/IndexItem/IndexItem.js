@@ -5,10 +5,9 @@ import style from './IndexItem.scss';
 
 const cx = classNames.bind(style);
 
-const IndexItem = ({ index, itemIndex }) => {
-
+const IndexItem = ({ index, itemIndex, handlePage }) => {
   return (
-    <div className={cx('IndexItemTemplate')}>
+    <div className={cx('IndexItemTemplate', { 'IndexItemTemplate-select': index === itemIndex})} onClick={() => handlePage(index)}>
       {index}
     </div>
   );
@@ -16,7 +15,8 @@ const IndexItem = ({ index, itemIndex }) => {
 
 IndexItem.propTypes = {
   index: PropTypes.number,
-  itemIndex: PropTypes.number
+  itemIndex: PropTypes.number,
+  handlePage: PropTypes.func
 }
 
 export default IndexItem; 

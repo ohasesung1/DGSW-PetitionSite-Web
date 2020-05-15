@@ -6,10 +6,21 @@ import petitionRepository from './petitionRepository';
 @autobind
 class petitionStore {
   @observable allPetitions = []; // 전체 청원 목록
+  @observable allPetitionPageIndex = 1; // 전체 청원 페이지 index
+  @observable allPetitionTotalPage = 1; // 전체 청원 페이지 개수
   @observable allowedPetitions = []; // 승인된 청원 목록
   @observable allowedPetitionTotalPage = 1; // 승인된 청원 페이지 개수
-  @observable allPetitionTotalPage = 1; // 승인된 청원 페이지 개수
-  @observable allowedPetitionPageIndex = 1;
+  @observable allowedPetitionPageIndex = 1; // 승인된 청원 페이지 index
+
+  @action
+  handleAllowedPage(pageIndex) {
+    this.allowedPetitionPageIndex = pageIndex;
+  }
+
+  @action
+  handleAllPage(pageIndex) {
+    this.allPetitionPageIndex = pageIndex;
+  }
 
   @action
   async getPetitionFeed (page, limit) { // 승인된 청원 목록을 Repository 함수를 통해 저장
