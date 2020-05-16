@@ -34,6 +34,36 @@ const PetitionTemplate = ({ allowedPetitionsItem, allPetitionsItem, allowedPetit
       <div className={cx('PetitionIndexItemTemplate')}>
         {allowedPetitionIndexItemList}
       </div>
+      <div className={cx('CategoryTitile')}>
+        <span>* 청원 분야별 보기</span>
+      </div>
+      <div className={cx('Category')}>
+        <div className={cx('Category-CategoryRowOne')}>
+          <div className={cx('Category-CategoryRowOne-contentsDiv')}>
+            <span>전체</span>
+          </div>
+          <div className={cx('Category-CategoryRowOne-contentsDiv')}>
+            <span>기숙사</span>
+          </div>
+          <div className={cx('Category-CategoryRowOne-contentsDiv')}>
+            <span>운동회</span>
+          </div>
+          <div className={cx('Category-CategoryRowOne-contentsDiv')}>
+            <span>축제</span>
+          </div>
+          <div className={cx('Category-CategoryRowOne-contentsDiv')}>
+            <span>동아리</span>
+          </div>
+        </div>
+        <div className={cx('Category-CategoryRowTwo')}>
+          <div className={cx('Category-CategoryRowTwo-contentsDiv')}>
+            <span>나르샤</span>
+          </div>
+          <div className={cx('Category-CategoryRowTwo-contentsDiv')}>
+            <span>강의</span>
+          </div>
+        </div>
+      </div>
       <div className={cx('PetitionTemplate')}>
         <div className={cx('PetitionTemplate-header')}>
           <div className={cx('PetitionTemplate-header-title')}>

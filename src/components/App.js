@@ -20,6 +20,20 @@ function App() {
             render={() => <Pages.Petition/>}
             />
       </Switch>
+      <Switch>
+          <Route
+            exact
+            path='/petition-write'
+            render={() => <Pages.PetitionWrite/>}
+            />
+      </Switch>
+      <Switch>
+          <Route
+            exact
+            path='/admin'
+            render={() => <Pages.Admin/>}
+            />
+      </Switch>
       <Modal />
     </>
   );

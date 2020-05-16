@@ -38,6 +38,16 @@ const NevBar = ({ url, store, history }) => {
       return;
     }
 
+    if (propUrl === '/petition-write' && (token === 'empty')) {
+      modal({
+        title: 'Warning!',
+        stateType: 'warning',
+        contents: '로그인 후 이용 해주세요.'
+      });
+
+      return;
+    }
+
     if (propUrl === history.location.pathname) {
       return;
     }
@@ -60,12 +70,12 @@ const NevBar = ({ url, store, history }) => {
 
   return (
     <div className={cx('NevBarTemplate')}>
-      <div className={cx('NevBarTemplate-mainButtonDiv')}>
+      <div className={cx('NevBarTemplate-mainButtonDiv')} onClick={() => handleUrl('/')}>
 
       </div>
       <div className={cx('NevBarTemplate-pageButtonDiv')}>
         <div className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv')}>
-          <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')}>청원하기</button>
+          <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')} onClick={() => handleUrl('/petition-write')}>청원하기</button>
         </div>
         <div className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv')}>
           <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')} onClick={() => handleUrl('/admin')}>관리자</button>

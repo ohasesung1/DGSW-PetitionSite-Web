@@ -61,6 +61,23 @@ class petitionStore {
       });
     }
   }
+
+  @action
+  async writePetition (request) { // 청원 작성
+    try {
+      const response = await petitionRepository.writePetition(request);
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
 }
 
 export default petitionStore;

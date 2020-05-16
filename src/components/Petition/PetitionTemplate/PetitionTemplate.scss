@@ -84,10 +84,64 @@
 
 
 .Category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 1000px;
   height: 300px;
-  margin-top: 10%;
-  border: 1px solid black;
+  margin-top: 30px;
+  border: 2px solid #003366;
+
+  &-CategoryRowOne {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: -120px;
+    &-contentsDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 50px;
+      border: 3px solid #003366;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      font-size: 17px;
+      margin-right: 30px;
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-CategoryRowTwo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+
+    margin-top: 20px;
+    margin-left: 100px;
+    &-contentsDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 50px;
+      border: 3px solid #003366;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      font-size: 17px;
+      margin-right: 30px;
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  } 
+
 }
 
 .PetitionIndexItemTemplate {
@@ -99,4 +153,14 @@
   height: 50px;
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+.CategoryTitile {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  width: 1000px;
+  font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+  height: 60px;
+  margin-bottom: -20px;
 }
