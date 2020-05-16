@@ -81,10 +81,10 @@ const NevBar = ({ url, store, history }) => {
           <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')} onClick={() => handleUrl('/admin')}>관리자</button>
         </div>
         <div className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv')}>
-          <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')}>승인된 청원</button>
+          <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')}>내가 작성한 청원</button>
         </div>
         <div className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv')}>
-          <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')}>승인 대기 청원</button>
+          <button className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv-buttons')}>학생회</button>
         </div>
       </div>
       <div className={cx('NevBarTemplate-loginButtonDiv')}>

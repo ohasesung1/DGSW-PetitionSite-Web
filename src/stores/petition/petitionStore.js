@@ -5,9 +5,9 @@ import petitionRepository from './petitionRepository';
 
 @autobind
 class petitionStore {
-  @observable allPetitions = []; // 전체 청원 목록
-  @observable allPetitionPageIndex = 1; // 전체 청원 페이지 index
-  @observable allPetitionTotalPage = 1; // 전체 청원 페이지 개수
+  @observable categoryPetitions = []; // 전체 청원 목록
+  @observable categoryPetitionPageIndex = 1; // 전체 청원 페이지 index
+  @observable categoryPetitionTotalPage = 1; // 전체 청원 페이지 개수
   @observable allowedPetitions = []; // 승인된 청원 목록
   @observable allowedPetitionTotalPage = 1; // 승인된 청원 페이지 개수
   @observable allowedPetitionPageIndex = 1; // 승인된 청원 페이지 index
@@ -19,13 +19,13 @@ class petitionStore {
 
   @action
   handleAllPage(pageIndex) {
-    this.allPetitionPageIndex = pageIndex;
+    this.categoryPetitionPageIndex = pageIndex;
   }
 
   @action
-  async getPetitionFeed (page, limit) { // 승인된 청원 목록을 Repository 함수를 통해 저장
+  async getPetitionFeed (page, limit, type) { // 승인된 청원 목록을 Repository 함수를 통해 저장
     try {
-      const response = await petitionRepository.getPetitionFeed(page, limit);
+      const response = await petitionRepository.getPetitionFeed(page, limit, type);
 
       this.allowedPetitions = response.data.petition; // 받아온 데이터를 observable 변수에 저장
       this.allowedPetitionTotalPage = response.data.totalPage; // 받아온 데이터를 observable 변수에 저장
@@ -43,12 +43,12 @@ class petitionStore {
   }
 
   @action
-  async getAllPetitionFeed (page, limit) { // 전체 청원 목록을 Repository 함수를 통해 저장
+  async getPetitionFeedByCategory (page, limit, category) { // 전체 청원 목록을 Repository 함수를 통해 저장
     try {
-      const response = await petitionRepository.getAllPetitionFeed(page, limit);
+      const response = await petitionRepository.getPetitionFeedByCategory(page, limit, category);
 
-      this.allPetitions = response.data.petition; // 받아온 데이터를 observable 변수에 저장
-      this.allPetitionTotalPage = response.data.totalPage; // 받아온 데이터를 observable 변수에 저장
+      this.categoryPetitions = response.data.petition; // 받아온 데이터를 observable 변수에 저장
+      this.categoryPetitionTotalPage = response.data.totalPage; // 받아온 데이터를 observable 변수에 저장
 
       return new Promise((resolve, reject) => { // resonse 비동기 처리
         resolve(response);

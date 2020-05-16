@@ -78,6 +78,7 @@ const PetitionWriteTemplate = ({titleObj, contentsObj, categoryObj, handleWriteP
             <option value={'동아리'}>동아리</option>
             <option value={'나르샤'}>나르샤</option>
             <option value={'강의'}>강의</option>
+            <option value={'급식'}>급식</option>
           </select>
         </div>
       </div>

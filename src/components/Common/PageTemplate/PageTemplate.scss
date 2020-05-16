@@ -34,10 +34,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 150px;
+    // padding-top: 150px;
     width: 100%;
     min-width: 1200px;
     min-height: 969px;
     padding-bottom: 100px;
+  }
+
+  &-haederBackground {
+    // position: absolute;
+    width: 100%;
+    height: 600px;
+
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

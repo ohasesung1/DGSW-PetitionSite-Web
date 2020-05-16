@@ -3,18 +3,18 @@ import TokenVerification from 'lib/Token/TokenVerification';
 import { SERVER } from 'config/config.json';
 
 class petitionRepository {
-  async getPetitionFeed (page, limit) { // 승인 된 청원 조회 요청 함수
+  async getPetitionFeed (page, limit, type) { // 승인 된 청원 조회 요청 함수
     try {
-      const { data } = await axios.get(`${SERVER}/petition?page=${page}&limit=${limit}`);
+      const { data } = await axios.get(`${SERVER}/petition?page=${page}&limit=${limit}&type=${type}`);
       return data;
     } catch (error) {
       throw error;
     }
   }
 
-  async getAllPetitionFeed (page, limit) {// 전체 청원 조회 요청 함수
+  async getPetitionFeedByCategory (page, limit, category) {// 전체 청원 조회 요청 함수
     try {
-      const { data } = await axios.get(`${SERVER}/petition/all?page=${page}&limit=${limit}`);
+      const { data } = await axios.get(`${SERVER}/petition/category/?page=${page}&limit=${limit}&category=${category}`);
       return data;
     } catch (error) {
       throw error;
