@@ -63,6 +63,46 @@ class petitionStore {
   }
 
   @action
+  async searchPetition (title, page, limit) { // 검색 청원 목록을 Repository 함수를 통해 저장
+    try {
+      const response = await petitionRepository.searchPetition(title, page, limit);
+
+      this.allowedPetitions = response.data.petition; // 받아온 데이터를 observable 변수에 저장
+      this.allowedPetitionTotalPage = response.data.totalPage; // 받아온 데이터를 observable 변수에 저장
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
+  async searchCategoryPetition (title, page, limit) { // 검색 청원 목록을 Repository 함수를 통해 저장
+    try {
+      const response = await petitionRepository.searchPetition(title, page, limit);
+
+      this.categoryPetitions = response.data.petition; // 받아온 데이터를 observable 변수에 저장
+      this.categoryPetitionTotalPage = response.data.totalPage; // 받아온 데이터를 observable 변수에 저장
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
   async writePetition (request) { // 청원 작성
     try {
       const response = await petitionRepository.writePetition(request);

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes  from 'prop-types';
 import classNames from 'classnames/bind';
 import style from './PetitionTemplate.scss';
+import { FiSearch } from 'react-icons/fi';
 
 const cx = classNames.bind(style);
 
@@ -13,7 +14,9 @@ const PetitionTemplate = ({
     category,
     handleCategory,
     handlePetitionType,
-    type
+    type,
+    handleSearchPetition,
+    handleSearchCategoryPetition
   }) => {
 
   if (category === '') {
@@ -34,6 +37,20 @@ const PetitionTemplate = ({
       break;
   }
 
+  const [title, setTitle] = useState('');
+
+  const handleKeypressForTypePetition = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchPetition(title);
+    }
+  };
+
+  const handleKeyPressForCategory = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchCategoryPetition(title);
+    }
+  };
+
   return (
     <>
       <div className={cx('isAllowedSelectDiv')}>
@@ -51,6 +68,19 @@ const PetitionTemplate = ({
         <div className={cx('PetitionTemplate-header')}>
           <div className={cx('PetitionTemplate-header-title')}>
             <span>{type} 청원 목록</span>
+            <div className={cx('PetitionTemplate-header-title-searchDiv')}>
+              {
+                type === '최신 순' ? 
+                <>
+                    <span>청원 검색:</span>
+                    <input className={cx('PetitionTemplate-header-title-searchDiv-searchInput')} placeholder={'청원 제목'} value={title} onChange={(e) => setTitle(e.target.value)} onKeyPress={(e) => handleKeypressForTypePetition(e)}/>
+                    <div className={cx('PetitionTemplate-header-title-searchDiv-iconDiv')} onClick={() => handleSearchPetition(title)}>
+                      <FiSearch className={cx('PetitionTemplate-header-title-searchDiv-iconDiv-icon')}/>
+                    </div>
+                </>
+                : <></>
+              }
+            </div>
           </div>
           <div className={cx('PetitionTemplate-header-kinds')}>
             <div className={cx('PetitionTemplate-header-kinds-category')}>
@@ -120,6 +150,19 @@ const PetitionTemplate = ({
         <div className={cx('PetitionTemplate-header')}>
           <div className={cx('PetitionTemplate-header-title')}>
             <span>{category} 청원 목록</span>
+            <div className={cx('PetitionTemplate-header-title-searchDiv')}>
+            {
+                category === '전체' ? 
+                <>
+                    <span>청원 검색:</span>
+                    <input className={cx('PetitionTemplate-header-title-searchDiv-searchInput')} placeholder={'청원 제목'} value={title} onChange={(e) => setTitle(e.target.value)} onKeyPress={(e) => handleKeyPressForCategory(e)}/>
+                    <div className={cx('PetitionTemplate-header-title-searchDiv-iconDiv')} onClick={() => handleSearchCategoryPetition(title)}>
+                      <FiSearch className={cx('PetitionTemplate-header-title-searchDiv-iconDiv-icon')}/>
+                    </div>
+                </>
+                : <></>
+              }
+            </div>
           </div>
         </div>
         <div className={cx('PetitionTemplate-header-kinds')}>

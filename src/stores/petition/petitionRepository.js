@@ -21,6 +21,15 @@ class petitionRepository {
     }
   }
 
+  async searchPetition (title, page, limit) {// 검색 청원 조회 요청 함수
+    try {
+      const { data } = await axios.get(`${SERVER}/petition/search?title=${title}&page=${page}&limit=${limit}`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async writePetition (request) { // 청원 작성 요청 함수
     // 토큰 가져오기
     const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 

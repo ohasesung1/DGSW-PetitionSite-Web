@@ -17,6 +17,8 @@ const Petition = ({ store }) => {
     handleAllowedPage,
     categoryPetitionTotalPage,
     handleAllPage,
+    searchPetition,
+    searchCategoryPetition
   } = store.petitionStore;
 
   let { allowedPetitionPageIndex, categoryPetitionPageIndex } = store.petitionStore;
@@ -36,11 +38,31 @@ const Petition = ({ store }) => {
   // 카테고리 변경 감지 변수
   const [isCheckChangeCategory, setIsCheckChangeCategory] = useState(false);
 
-  // 카테고리 변경 감지 변수
+  // 타입 변경 감지 변수
   const [isCheckChangeType, setIsCheckChangeType] = useState(false);
 
   // 카테고리 변수
   const [category, setCategory] = useState('');
+
+  const handleSearchCategoryPetition = async (title) => {
+    if (title === '') {
+      getDataSecond();
+
+      return;
+    }
+
+    await searchCategoryPetition(title, categoryPetitionPageIndex, 9)
+  };
+
+  // 타입별 청원 조회 용 검색 조회 함수
+  const handleSearchPetition = async (title) => {
+    if (title === '') {
+      getData();
+
+      return;
+    }
+    await searchPetition(title, allowedPetitionPageIndex, 9);
+  };
 
   // 카테고리 변경시 저장
   const handleCategory = async (categoryData) => {
@@ -159,6 +181,8 @@ const Petition = ({ store }) => {
       handleCategory={handleCategory}
       handlePetitionType={handlePetitionType}
       type={type}
+      handleSearchPetition={handleSearchPetition}
+      handleSearchCategoryPetition={handleSearchCategoryPetition}
     />
   );
 };
