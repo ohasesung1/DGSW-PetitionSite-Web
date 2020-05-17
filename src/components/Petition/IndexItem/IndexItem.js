@@ -6,6 +6,7 @@ import style from './IndexItem.scss';
 const cx = classNames.bind(style);
 
 const IndexItem = ({ index, itemIndex, handlePage }) => {
+  
   return (
     <div className={cx('IndexItemTemplate', { 'IndexItemTemplate-select': index === itemIndex})} onClick={() => handlePage(index)}>
       {index}

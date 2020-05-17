@@ -1,7 +1,7 @@
 import signStore from './sign';
 import dialogStore from './dialog';
 import petitionStore from './petition';
-import adminStore from './Admin';
+import adminStore from './admin';
 
 const stores = {
   sign: new signStore(),

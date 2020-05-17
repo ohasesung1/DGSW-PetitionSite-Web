@@ -9,7 +9,7 @@ import style from './NevBar.scss';
 
 const cx = classNames.bind(style);
 
-const NevBar = ({ url, store, history }) => {
+const NevBar = ({ url, store, history, isBackground }) => {
   const { modal } = store.dialog;
   const [isLogin, setIsLogin] = useState('');
 
@@ -69,7 +69,7 @@ const NevBar = ({ url, store, history }) => {
 
 
   return (
-    <div className={cx('NevBarTemplate')}>
+    <div className={cx('NevBarTemplate', { 'CustomMargin': isBackground === true})}>
       <div className={cx('NevBarTemplate-mainButtonDiv')} onClick={() => handleUrl('/')}>
 
       </div>

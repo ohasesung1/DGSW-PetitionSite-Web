@@ -5,7 +5,7 @@ import PetitionContainer from '../containers/Petition';
 const Petition = () => {
   return (
     <>
-      <PageTemplate>
+      <PageTemplate url={'/'}>
         <PetitionContainer/>
       </PageTemplate>
     </>

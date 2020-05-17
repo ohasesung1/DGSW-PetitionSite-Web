@@ -6,7 +6,7 @@ import PetitionWriteContainer from '../containers/PetitionWriteContainer';
 const PetitionWrite = () => {
   return (
     <>
-      <PageTemplate>
+      <PageTemplate url={'petition-write'}>
         <PetitionWriteContainer/>
       </PageTemplate>
     </>

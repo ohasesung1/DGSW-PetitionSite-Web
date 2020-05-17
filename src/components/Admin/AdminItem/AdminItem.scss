@@ -1,0 +1,62 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.AdminItemTemplate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #ced4da;
+
+  &-categoryDiv {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    justify-content: flex-start;
+    width: 300px;
+    height: 100%;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    // border: 1px solid black;
+  }
+
+  &-authDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    width: 300px;
+    height: 100%;
+    // border: 1px solid black;
+
+    &-buttonDiv {
+      display: flex;
+      flex-direction: row;
+      width: 150px;
+      height: 35px;
+      &-AddButton {
+        width: 100%;
+        height: 100%;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        cursor: pointer;
+        border: none;
+        color: white;
+        outline: 0px;
+        background-color: #003366;
+      }
+
+      &-deleteButton {
+
+        width: 100%;
+        height: 100%;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        cursor: pointer;
+        border: none;
+        color: white;
+        outline: 0px;
+        background-color: #c92a2a;
+      }
+    }
+  }
+}

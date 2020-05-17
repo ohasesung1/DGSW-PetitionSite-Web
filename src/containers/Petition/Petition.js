@@ -31,7 +31,7 @@ const Petition = ({ store }) => {
   const [allowedPetitionIndexItemList, setAllowedPetitionIndexItemList] = useState([]);
 
   // 승인, 승인 안된, 투표 순서 별 조회를 위한 변수
-  const [type, setType] = useState('allowed');
+  const [type, setType] = useState('order');
 
   // 카테고리 변경 감지 변수
   const [isCheckChangeCategory, setIsCheckChangeCategory] = useState(false);
@@ -42,11 +42,13 @@ const Petition = ({ store }) => {
   // 카테고리 변수
   const [category, setCategory] = useState('');
 
+  // 카테고리 변경시 저장
   const handleCategory = async (categoryData) => {
     setIsCheckChangeCategory(true);
     await setCategory(categoryData);
   };
 
+  // 청원 타입 변경시 저장
   const handlePetitionType = (typeData) => {
     setIsCheckChangeType(true);
     setType(typeData)
@@ -105,10 +107,21 @@ const Petition = ({ store }) => {
       if (allowedPetitionTotalPage === 1) { // 전체 페이지 크기가 1인 경우 인덱스 1로 설정 
         setAllowedPetitionIndexItemList(<IndexItem key={1} index={1} itemIndex={1} handlePage={handleAllowedPage}/>);
       } else {
-        let itemList = []; // 전체 페이지 크기가 1보다 클 경우 인덱스를 크기 만큼 설정
+        let itemList = []; // 전체 페이지 크기가 1보다 클 경우 인덱스를 크기 만큼 설정        
         for (let i = 1; i <= allowedPetitionTotalPage; i ++) {
           itemList.push(<IndexItem key={i} index={i} itemIndex={allowedPetitionPageIndex} handlePage={handleAllowedPage}/>)
         }
+
+        if (allowedPetitionTotalPage < allowedPetitionPageIndex) {
+          itemList = [];
+          
+          allowedPetitionPageIndex = 1;
+
+          for (let i = 1; i <= allowedPetitionTotalPage; i ++) {
+            itemList.push(<IndexItem key={i} index={i} itemIndex={allowedPetitionPageIndex} handlePage={handleAllowedPage}/>)
+          }
+        }
+
         setAllowedPetitionIndexItemList(itemList);
       }
   }, [allowedPetitionTotalPage, allowedPetitionPageIndex]);
@@ -121,6 +134,16 @@ const Petition = ({ store }) => {
       let itemList = [];
       for (let i = 1; i <= categoryPetitionTotalPage; i ++) {
         itemList.push(<IndexItem key={i} index={i} itemIndex={categoryPetitionPageIndex} handlePage={handleAllPage}/>)
+      }
+
+      if (categoryPetitionTotalPage < categoryPetitionPageIndex) {
+        itemList = [];
+        
+        categoryPetitionPageIndex = 1;
+
+        for (let i = 1; i <= allowedPetitionTotalPage; i ++) {
+          itemList.push(<IndexItem key={i} index={i} itemIndex={categoryPetitionPageIndex} handlePage={handleAllPage}/>)
+        }
       }
       setcategoryPetitionsIndexItemList(itemList);
     }

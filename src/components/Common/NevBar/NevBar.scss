@@ -1,6 +1,10 @@
 @import 'styles/color/color_scheme.scss';
 @import 'styles/typography/typography_scheme.scss';
 
+.CustomMargin {
+  margin-top: 30px;
+}
+
 .NevBarTemplate {
   display: flex;
   flex-direction: row;
@@ -8,7 +12,6 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
   background-color: rgba(0, 0, 0, 0.55);
 
   &-pageButtonDiv {

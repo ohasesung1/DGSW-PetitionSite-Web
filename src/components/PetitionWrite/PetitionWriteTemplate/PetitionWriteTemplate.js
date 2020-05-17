@@ -8,8 +8,6 @@ import classNames from 'classnames';
 const cx = classNames.bind(style);
 
 const PetitionWriteTemplate = ({titleObj, contentsObj, categoryObj, handleWritePetition, history}) => {
-  console.log(history);
-  
   const { title, setTitle } = titleObj;
   const { contents, setContents } = contentsObj;
   const { category, setCategory } = categoryObj;

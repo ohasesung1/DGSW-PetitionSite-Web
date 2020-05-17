@@ -37,14 +37,14 @@ const PetitionTemplate = ({
   return (
     <>
       <div className={cx('isAllowedSelectDiv')}>
-        <div className={cx('isAllowedSelectDiv-allowedSelectDiv', { 'isAllowedSelectDiv-allowedSelectDiv-style': type === '승인된' })} onClick={() => handlePetitionType('allowed')}>
-          승인된 청원 보기
+        <div className={cx('isAllowedSelectDiv-allowedSelectDiv', { 'isAllowedSelectDiv-allowedSelectDiv-style': type === '최신 순' })} onClick={() => handlePetitionType('order')}>
+          최신 순 청원 보기
         </div>
         <div className={cx('isAllowedSelectDiv-notAllowedSelectDiv', { 'isAllowedSelectDiv-notAllowedSelectDiv-style': type === '승인 대기 중인' })}  onClick={() => handlePetitionType('not_allowed')}>
           승인 대기 중인 청원 보기
         </div>
-        <div className={cx('isAllowedSelectDiv-orderPetitionSelectDiv', { 'isAllowedSelectDiv-orderPetitionSelectDiv-style': type === '최신 순' })}  onClick={() => handlePetitionType('order')}>
-          최신 순 청원 보기
+        <div className={cx('isAllowedSelectDiv-orderPetitionSelectDiv', { 'isAllowedSelectDiv-orderPetitionSelectDiv-style': type === '승인된' })}  onClick={() => handlePetitionType('allowed')}>
+          승인된 청원 보기
         </div>  
       </div>
       <div className={cx('PetitionTemplate')}>
