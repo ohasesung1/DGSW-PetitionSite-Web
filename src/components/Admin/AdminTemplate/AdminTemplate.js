@@ -48,7 +48,11 @@ const AdminTemplate = ({ memberList, handleSearchMember }) => {
           </div>          
         </div>
         <div className={cx('AdminTemplate-contentsDiv')}>
-          {memberList}
+          {
+            memberList.length === 0 ?
+              <div className={cx('AdminTemplate-contentsDiv-notFoundDiv')}>학생 정보 없음</div>
+            : memberList
+          }
         </div>
       </div>
     </>
