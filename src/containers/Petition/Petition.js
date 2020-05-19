@@ -6,7 +6,7 @@ import IndexItem from 'components/Petition/IndexItem';
 import usePending from 'lib/HookState/usePending';
 import PropTypes from 'prop-types';
 
-const Petition = ({ store }) => {
+const Petition = ({ store, history }) => {
   // 서버 데이터 함수 or 변수
   const { 
     getPetitionFeed, 

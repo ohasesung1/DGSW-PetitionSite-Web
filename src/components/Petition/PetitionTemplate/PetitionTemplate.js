@@ -18,7 +18,7 @@ const PetitionTemplate = ({
     handleSearchPetition,
     handleSearchCategoryPetition
   }) => {
-
+    
   if (category === '') {
     category = '전체';
   };

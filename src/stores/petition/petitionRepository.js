@@ -30,6 +30,15 @@ class petitionRepository {
     }
   }
 
+  async getPetitionDetail (idx) {//  청원 상세 조회 조회 요청 함수
+    try {
+      const { data } = await axios.get(`${SERVER}/petition/detail?idx=${idx}`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async writePetition (request) { // 청원 작성 요청 함수
     // 토큰 가져오기
     const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 

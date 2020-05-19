@@ -12,6 +12,8 @@ class petitionStore {
   @observable allowedPetitionTotalPage = 1; // 승인된 청원 페이지 개수
   @observable allowedPetitionPageIndex = 1; // 승인된 청원 페이지 index
 
+  @observable PetitionDetailData = {};
+
   @action
   handleAllowedPage(pageIndex) {
     this.allowedPetitionPageIndex = pageIndex;
@@ -89,6 +91,25 @@ class petitionStore {
 
       this.categoryPetitions = response.data.petition; // 받아온 데이터를 observable 변수에 저장
       this.categoryPetitionTotalPage = response.data.totalPage; // 받아온 데이터를 observable 변수에 저장
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
+  async getPetitionDetail (idx) { //  청원 상세조회 후  Repository 함수를 통해 저장
+    try {
+      const response = await petitionRepository.getPetitionDetail(idx);
+
+      this.PetitionDetailData = response.data.petition;
 
       return new Promise((resolve, reject) => { // resonse 비동기 처리
         resolve(response);

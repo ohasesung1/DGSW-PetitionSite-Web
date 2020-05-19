@@ -1,0 +1,185 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+
+.PetitionDetailTemplate {
+  width: 1300px;
+  min-height: 1000px;
+  border: 1px solid #adb5bd;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  z-index: 1;
+  flex-direction: row;
+  // align-items: center;
+  // justify-content: center;
+
+  &-contentsDiv {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    min-height: 1000px;
+
+    &-contentsBox {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 900px;
+      height: 500px;
+      padding: 10px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      // border: 1px solid black;
+    }
+
+    &-titleDiv {
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 900px;
+      min-height: 380px;
+      border-bottom: 1px solid #adb5bd;
+
+      &-contentsTitleDiv {
+        // border: 1px solid black
+        font-size: 20px;
+        padding-bottom: 10px;
+        color: #003366;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        margin: auto auto auto 0px;
+      }
+
+      &-guideDiv {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+        height: 100px;
+        // border: 1px solid black;
+        font-family: $NOTO_SANS_KR_DEMILIGHT, $NOTO_SANS_REGULAR;
+        font-size: 30px;
+        margin: auto auto auto auto;
+      }
+
+      &-title {
+        display: flex;
+        // align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 30px;
+        color: #003366;
+        padding-top: 20px;
+        width: 700px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        min-height: 150px;
+        // border: 1px solid black;
+      }
+
+      &-voteDiv {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 23px;
+        width: 100%;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        height: 70px;
+        // border: 1px solid black;
+      }
+
+      &-infoDiv {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        min-width: 800px;
+        height: 60px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #f1f3f5; 
+
+        &-categoryDiv {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 200px;
+          height: 100%;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        }
+      }
+
+      &-statusDiv {
+        z-index: 4;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 700px;
+        height: 70px;
+        margin-bottom: 30px;
+        // border: 1px solid black;
+
+        &-graph {
+          z-index: 5;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: row;
+          // align-items: center;
+          justify-content: space-between;
+          width: 700px;
+          height: 35px;
+          border-top: 1px solid #dee2e6;
+
+          &-start {
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            height: 35px;
+            // border: 1px solid black;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+
+            &-iconDiv {
+              z-index: 7;
+              margin-top: -12px;
+              margin-bottom: 5px;
+              position: relative;
+              width: 15px;
+              height: 15px;
+
+              &-icon {
+                width: 100%;
+                height: 100%;
+                color: #dee2e6;
+              }
+
+              &-iconColor {
+                color: #003366;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-bannerDiv {
+    width: 300px;
+    min-height: 1000px;
+    border-left: 1px solid #adb5bd;
+  }
+}
+
+.categoryColor {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 500;
+  color: #003366;
+}
+
+.statusColor {
+  color: black;
+}
