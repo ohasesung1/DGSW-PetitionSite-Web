@@ -5,15 +5,22 @@ import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 import style from './PetitionDetailTemplate.scss';
 import { BsFillCircleFill } from 'react-icons/bs';
+import { AiOutlineCaretDown } from 'react-icons/ai';
 
 const cx = classNames.bind(style);
 
-const PetitionDetailTemplate = ({ detailData }) => {
+const PetitionDetailTemplate = ({ detailData, commentContentsObj,  handleWriteCommentFunc, handleCommentGet, commentArray}) => {
 
-  const { title, contents, category, joinDate, id, blind, comment } = detailData;
+  const { idx, title, contents, category, joinDate, id, blind, comment } = detailData;
   let { isAllowed } = detailData;
 
   const joinDateFormat = moment(joinDate).format('YYYY-MM-DD');
+  
+  const { commentContents, setCommentContents } = commentContentsObj;
+
+  console.log(commentArray);
+  
+
   let memberIdLength;
   let commentLength;
   
@@ -88,6 +95,27 @@ const PetitionDetailTemplate = ({ detailData }) => {
         </div>
         <div className={cx('PetitionDetailTemplate-contentsDiv-contentsBox')}>
           {contents}
+      </div>
+        <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv')}>
+          <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-titleDiv')}>
+            <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-titleDiv-title')}>
+              <span>청원 동의 {commentLength}명</span>
+            </div>
+          </div>
+          <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentWriteDiv')}>
+            <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentWriteDiv-textDiv')}>
+              <textarea className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentWriteDiv-textDiv-text')} placeholder={'동의 댓글 작성...'} value={commentContents} onChange={(e) => setCommentContents(e.target.value)}/>
+            </div>
+            <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentWriteDiv-sendButtonDiv')}>
+              <button className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentWriteDiv-sendButtonDiv-sendButton')} onClick={() => handleWriteCommentFunc(idx)}>동의</button>
+            </div>
+          </div>
+          <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentButtonDiv')}>
+            <button className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentButtonDiv-button')} onClick={() => handleCommentGet(idx)}>동의 댓글 보기 <AiOutlineCaretDown/> </button>
+          </div>
+          <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentTemplate')}>
+            {commentArray}
+          </div>
         </div>
       </div>
       <div className={cx('PetitionDetailTemplate-bannerDiv')}> 

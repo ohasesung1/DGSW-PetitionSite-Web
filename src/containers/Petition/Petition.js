@@ -73,7 +73,7 @@ const Petition = ({ store, history }) => {
   // 청원 타입 변경시 저장
   const handlePetitionType = (typeData) => {
     setIsCheckChangeType(true);
-    setType(typeData)
+    setType(typeData);
   };
 
   // 승인된 청원 목록 스토어 함수 호출 

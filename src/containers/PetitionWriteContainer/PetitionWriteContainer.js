@@ -108,7 +108,6 @@ const PetitionWriteContainer = ({ store, history }) => {
           return;
         }
 
-
         if (status === 500) {
           modal({
             title: 'Error!',

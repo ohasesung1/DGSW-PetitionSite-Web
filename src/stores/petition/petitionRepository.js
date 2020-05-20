@@ -30,9 +30,32 @@ class petitionRepository {
     }
   }
 
+  async writePetitionComment (request) {// 검색 청원 조회 요청 함수
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+    try {
+      const { data } = await axios.post(`${SERVER}/petition/comment`, request, {
+        headers: {
+          'x-access-token' : token,
+        }
+      });
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getPetitionDetail (idx) {//  청원 상세 조회 조회 요청 함수
     try {
       const { data } = await axios.get(`${SERVER}/petition/detail?idx=${idx}`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getPetitionComments (idx) {//  청원 상세 조회 댓글 조회 요청 함수
+    try {
+      const { data } = await axios.get(`${SERVER}/petition/comment?petitionIdx=${idx}`);
       return data;
     } catch (error) {
       throw error;

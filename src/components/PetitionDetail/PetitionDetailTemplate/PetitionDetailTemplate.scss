@@ -22,6 +22,102 @@
     width: 1000px;
     min-height: 1000px;
 
+    &-commentDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 900px;
+      min-height: 280px;
+      margin-bottom: 8%;
+
+      &-commentTemplate {
+        width: 100%;
+        height: 300px;
+        border: 1px solid black;
+      }
+
+      &-titleDiv {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 70px;
+        // border: 1px solid black;
+
+        &-title {
+          margin: auto auto auto 0px;
+          padding-left: 10px;
+          font-size: 23px;
+          color: #003366;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        }
+      }
+
+      &-commentWriteDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 130px;
+        border: 1px solid #f1f3f5;
+        background-color: #f8f9fa;
+
+        &-textDiv {
+          width: 700px;
+          height: 80px;
+
+          &-text {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            font-size: 15px;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+            padding-left: 5px;
+            padding-top: 5px;
+            outline: 0px;
+          }
+        }
+
+        &-sendButtonDiv {
+          width: 130px;
+          height: 80px;
+          margin-left: 30px;
+
+          &-sendButton {
+            border: 0px;
+            width: 100%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+            outline: 0px;
+            height: 100%;
+            background-color: #003366;
+          }
+        }
+      }
+
+      &-commentButtonDiv {
+        width: 100%;
+        height: 50px;
+        margin-top: 30px;
+
+        &-button {
+          width: 100%;
+          height: 100%;
+          font-size: 15px;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          padding-right: 15px;
+          cursor: pointer;
+          border: 0px;
+          outline: 0px;
+          background-color: #f8f9fa;
+        }
+      }
+    }
+
     &-contentsBox {
       margin-top: 10px;
       margin-bottom: 10px;

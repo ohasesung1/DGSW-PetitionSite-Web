@@ -12,6 +12,8 @@ class petitionStore {
   @observable allowedPetitionTotalPage = 1; // 승인된 청원 페이지 개수
   @observable allowedPetitionPageIndex = 1; // 승인된 청원 페이지 index
 
+  @observable petitionComment = [];
+
   @observable PetitionDetailData = {};
 
   @action
@@ -127,6 +129,43 @@ class petitionStore {
   async writePetition (request) { // 청원 작성
     try {
       const response = await petitionRepository.writePetition(request);
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
+  async writePetitionComment (request) { // 청원 댓글 작성
+    try {
+      const response = await petitionRepository.writePetitionComment(request);
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
+  async getPetitionComments (idx) { // 청원 댓글 조회
+    try {
+      const response = await petitionRepository.getPetitionComments(idx);
+      console.log(response);
+      
+      this.petitionComment = response.data.comment;
 
       return new Promise((resolve, reject) => { // resonse 비동기 처리
         resolve(response);
