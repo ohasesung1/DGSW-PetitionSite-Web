@@ -5,7 +5,6 @@ import PetitionDetailTemplate from 'components/PetitionDetail/PetitionDetailTemp
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import GroupingState from 'lib/HookState/GroupingState';
-import PetitionCommentItem from 'components/PetitionDetail/PetitionCommentItem/PetitionCommentItem';
 import TokenVerification from 'lib/Token/TokenVerification';
 
 const PetitionDetailContainer = ({ store, history }) => {
@@ -13,17 +12,11 @@ const PetitionDetailContainer = ({ store, history }) => {
   const { modal } = store.dialog;
   const [detailData, setDetailData] = useState({});
   const [commentContents, setCommentContents] = useState('');
-  const [commentArray, setCommentArray] = useState([]);
 
   const handlePetitionDetail = async () => {
     const idx = localStorage.getItem("petition-idx");
 
     await getPetitionDetail(idx);
-  };
-
-  const handleCommentGet = async (idx) => {
-    await getPetitionComments(idx);
-    setCommentArray(petitionComment.map((item) => <PetitionCommentItem key={item.idx} item={item}/>));
   };
 
   const handleWriteComment = async (petitionIdx) => {
@@ -123,23 +116,20 @@ const PetitionDetailContainer = ({ store, history }) => {
   };
 
   const [isLoading, getData] = usePending(handlePetitionDetail);
-
+  
   useEffect(() => {
     getData();
-    handleCommentGet();
   }, []);
 
   useEffect(() => {
     setDetailData(PetitionDetailData);
-  }, [PetitionDetailData, commentArray]);
+  }, [PetitionDetailData]);
 
   return (
     <PetitionDetailTemplate
       detailData={detailData}
       commentContentsObj = {GroupingState('commentContents', commentContents, setCommentContents)}
       handleWriteCommentFunc = {handleWriteComment}
-      handleCommentGet={handleCommentGet}
-      commentArray={commentArray}
     />
   );
 };

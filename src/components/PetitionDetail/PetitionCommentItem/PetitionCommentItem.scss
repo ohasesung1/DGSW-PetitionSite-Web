@@ -1,0 +1,39 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.PetitionCommentItemDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  border-top: 1px solid #ced4da;
+
+  &-idDiv {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    &-id {
+      margin-left: 20px;
+    }
+
+    &-joinDate {
+      margin: auto 20px auto auto;
+    }
+  }
+  &-contentsDiv {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    // border: 1px solid black;
+
+    &-contents {
+      margin-left: 20px;
+    }
+  }
+}

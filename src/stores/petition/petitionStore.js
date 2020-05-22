@@ -163,8 +163,7 @@ class petitionStore {
   async getPetitionComments (idx) { // 청원 댓글 조회
     try {
       const response = await petitionRepository.getPetitionComments(idx);
-      console.log(response);
-      
+
       this.petitionComment = response.data.comment;
 
       return new Promise((resolve, reject) => { // resonse 비동기 처리
