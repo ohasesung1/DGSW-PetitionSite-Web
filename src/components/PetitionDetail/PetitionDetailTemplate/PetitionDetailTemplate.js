@@ -3,14 +3,16 @@ import PropTypes  from 'prop-types';
 import classNames from 'classnames/bind';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
+import ReactPlayer from 'react-player';
 import style from './PetitionDetailTemplate.scss';
 import { BsFillCircleFill } from 'react-icons/bs';
+import schoolImage from 'assets/image/schoolImage.jpg';
 import PetitionCommentItem from 'components/PetitionDetail/PetitionCommentItem/PetitionCommentItem';
 import { AiOutlineCaretDown } from 'react-icons/ai';
 
 const cx = classNames.bind(style);
 
-const PetitionDetailTemplate = ({ detailData, commentContentsObj,  handleWriteCommentFunc}) => {
+const PetitionDetailTemplate = ({ detailData, commentContentsObj,  handleWriteCommentFunc, handleWritePagePath, sideAllowedPetition}) => {
 
   const { idx, title, contents, category, joinDate, id, blind, comment } = detailData;
   let { isAllowed } = detailData;
@@ -121,14 +123,37 @@ useEffect(() => {
         </div>
       </div>
       <div className={cx('PetitionDetailTemplate-bannerDiv')}> 
-
+        <div className={cx('PetitionDetailTemplate-bannerDiv-petitionWriteDiv')}>
+          <div className={cx('PetitionDetailTemplate-bannerDiv-petitionWriteDiv-title')}>
+            <span>2020 학생회 지금 청원 하러 가기</span>
+          </div>
+          <div className={cx('PetitionDetailTemplate-bannerDiv-petitionWriteDiv-imgDiv')} onClick={() => handleWritePagePath()}>
+            <img className={cx('PetitionDetailTemplate-bannerDiv-petitionWriteDiv-imgDiv-img')}src={schoolImage}/>
+          </div>
+        </div>
+        <div className={cx('PetitionDetailTemplate-bannerDiv-schoolYoutubeDiv')}>
+          <div className={cx('PetitionDetailTemplate-bannerDiv-schoolYoutubeDiv-title')}>
+            <span>학교 홍보 영상</span>
+          </div>
+          <ReactPlayer width={"280px"} height={"200px"} url={'https://www.youtube.com/watch?v=6Z71dmwOEyM'} loop controls/>
+        </div>
+        <div className={cx('PetitionDetailTemplate-bannerDiv-allowedPetitionDiv')}>
+          <div className={cx('PetitionDetailTemplate-bannerDiv-allowedPetitionDiv-title')}>
+            <span>승인된 청원</span>
+          </div>
+          {sideAllowedPetition}
+        </div>
       </div>
     </div>
   );
 };
 
 PetitionDetailTemplate.propTypes = {
-
+  detailData: PropTypes.object,
+  commentContentsObj: PropTypes.object,
+  handleWriteCommentFunc: PropTypes.func,
+  handleWritePagePath: PropTypes.func,
+  sideAllowedPetition: PropTypes.array
 };
 
 export default PetitionDetailTemplate;

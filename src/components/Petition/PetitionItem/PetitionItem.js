@@ -18,7 +18,7 @@ const PetitionItem = ({ item, history }) => {
 
   const handlePetitionDetail = async () => {
     localStorage.setItem("petition-idx", idx);
-
+    
     history.push('/petition-detail');
   };
 

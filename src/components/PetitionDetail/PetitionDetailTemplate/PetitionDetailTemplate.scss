@@ -263,9 +263,96 @@
   }
 
   &-bannerDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 300px;
     min-height: 1000px;
     border-left: 1px solid #adb5bd;
+
+    &-petitionWriteDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 270px;
+      border-bottom: 1px solid #dee2e6;
+
+      &-title {
+        display: flex;
+        align-items: center;
+        width: 280px;
+        height: 50px;
+        // border: 1px solid black;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      }
+
+      &-imgDiv {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        height: 180px;
+        border: 1px solid #dee2e6;
+        background-color: #f8f9fa;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &-img {
+          width: 250px;
+          height: 150px;
+        }
+      }
+    }
+
+    &-schoolYoutubeDiv {
+      display: flex;
+      flex-direction: column;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 300px;
+      border-bottom: 1px solid #dee2e6;
+
+      &-schoolYoutube {
+        width: 100px;
+        height: 200px;
+        border: 1px solid white;
+      }
+
+      &-title {
+        width: 100%;
+        height: 40px;
+        margin-left: 18px;
+        margin-top: -20px;
+      }
+    }
+
+    &-pushPetitionDiv {
+      width: 100%;
+      height: 300px;
+      // border: 1px solid black;
+    }
+
+    &-allowedPetitionDiv {
+      width: 100%;
+      min-height: 220px;
+      border-bottom: 1px solid #dee2e6;
+      margin-top: 10px;
+
+      &-title {
+        width: 100%;
+        padding-left: 10px;
+        font-size: 20px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        color: #003366;
+        height: 30px;
+      }
+    }
   }
 }
 

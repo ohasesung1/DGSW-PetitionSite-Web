@@ -3,6 +3,7 @@ import PropTypes  from 'prop-types';
 import SecureLS from 'secure-ls';
 import TokenVerification from 'lib/Token/TokenVerification';
 import { inject, observer } from 'mobx-react';
+import dgswLogo from 'assets/image/dgsw_logo.png';
 import classNames from 'classnames/bind';
 import { withRouter } from 'react-router-dom';
 import style from './NevBar.scss';
@@ -71,7 +72,7 @@ const NevBar = ({ url, store, history, isBackground }) => {
   return (
     <div className={cx('NevBarTemplate', { 'CustomMargin': isBackground === true})}>
       <div className={cx('NevBarTemplate-mainButtonDiv')} onClick={() => handleUrl('/')}>
-
+        <img className={cx('NevBarTemplate-mainButtonDiv-img')} src={dgswLogo}/>
       </div>
       <div className={cx('NevBarTemplate-pageButtonDiv')}>
         <div className={cx('NevBarTemplate-pageButtonDiv-buttonsDiv')}>

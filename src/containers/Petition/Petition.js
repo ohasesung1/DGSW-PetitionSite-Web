@@ -114,6 +114,10 @@ const Petition = ({ store, history }) => {
     }
   }, [categoryPetitionPageIndex, category]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // 스토어 변수를 통해 item 저장
   useEffect(() => {
     setCategoryPetitionsItem(categoryPetitions.map((feed) => <PetitionItem key={feed.idx} item={feed}/>));
@@ -121,7 +125,9 @@ const Petition = ({ store, history }) => {
 
   // 스토어 변수를 통해 item 저장
   useEffect(() => {
-    setAllowedPetitionsItem(allowedPetitions.map((feed) => <PetitionItem key={feed.idx} item={feed}/>));
+    if (allowedPetitions) {      
+      setAllowedPetitionsItem(allowedPetitions.map((feed) => <PetitionItem key={feed.idx} item={feed}/>));
+    }
   }, [allowedPetitions]);
 
   // 승인된 청원 목록 페이지네이션 저장

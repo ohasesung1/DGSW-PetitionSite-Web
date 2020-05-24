@@ -45,6 +45,20 @@ class AdminRepository {
     }
   }
 
+  async deletePetition (idx) { //  청원 삭제
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+    try {
+      const { data } = await axios.delete(`${SERVER}/petition?idx=${idx}`, {
+        headers: {
+          'x-access-token' : token
+        }
+      });
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getOrderMember () { // 관리자용 멤버 조회 함수
     const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
     try {

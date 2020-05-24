@@ -30,7 +30,7 @@ class petitionStore {
   async getPetitionFeed (page, limit, type) { // 승인된 청원 목록을 Repository 함수를 통해 저장
     try {
       const response = await petitionRepository.getPetitionFeed(page, limit, type);
-
+      
       this.allowedPetitions = response.data.petition; // 받아온 데이터를 observable 변수에 저장
       this.allowedPetitionTotalPage = response.data.totalPage; // 받아온 데이터를 observable 변수에 저장
 

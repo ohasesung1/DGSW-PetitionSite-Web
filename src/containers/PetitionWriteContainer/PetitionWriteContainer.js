@@ -23,7 +23,7 @@ const PetitionWriteContainer = ({ store, history }) => {
 
   const useComponentDidMount = func => useEffect(func, []);
 
-  const navigate = path => {
+  const navigate = async (path) => {
     history.push(path);
   };
 
@@ -35,7 +35,6 @@ const PetitionWriteContainer = ({ store, history }) => {
         contents: '작성된 내용이 사라질 수 있습니다. 이동하시겠습니까?',
         confirmFunc: async () => {
           await setIsConfirmed(true);
-
           await navigate(nextLocation.pathname);
         }
       });
@@ -139,6 +138,10 @@ const PetitionWriteContainer = ({ store, history }) => {
       window.onbeforeunload = undefined;
     }
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

@@ -4,19 +4,46 @@ import usePending from 'lib/HookState/usePending';
 import PetitionDetailTemplate from 'components/PetitionDetail/PetitionDetailTemplate';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import SideAllowedPetitionItem from 'components/PetitionDetail/SideAllowedPetitionItem/SideAllowedPetitionItem';
 import GroupingState from 'lib/HookState/GroupingState';
 import TokenVerification from 'lib/Token/TokenVerification';
 
 const PetitionDetailContainer = ({ store, history }) => {
-  const { getPetitionDetail, PetitionDetailData, writePetitionComment, getPetitionComments, petitionComment } = store.petitionStore;
+  const { getPetitionDetail, PetitionDetailData, writePetitionComment, getPetitionFeed, allowedPetitions} = store.petitionStore;
+  const { deletePeition } = store.adminStore;
   const { modal } = store.dialog;
   const [detailData, setDetailData] = useState({});
   const [commentContents, setCommentContents] = useState('');
+  const [sideAllowedPetition, setSideAllowedPetition] = useState([]);
+
+  const idx = localStorage.getItem("petition-idx");
 
   const handlePetitionDetail = async () => {
-    const idx = localStorage.getItem("petition-idx");
-
     await getPetitionDetail(idx);
+  };
+
+  const handlePetitionDelete = async (idx) => {
+    await deletePeition(idx)
+  };
+
+  const handleWritePagePath = async () => {
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+
+    if (token === null) {
+      await modal({
+        title: 'Warning!',
+        stateType: 'warning',
+        contents: '로그인 후 이용해 주세요.'
+      });
+
+      return;
+    }
+
+    history.push('/petition-write');
+  };
+
+  const handleSideAllowedPetition = async () => {
+    await getPetitionFeed(1, 5, 'allowed');
   };
 
   const handleWriteComment = async (petitionIdx) => {
@@ -116,20 +143,36 @@ const PetitionDetailContainer = ({ store, history }) => {
   };
 
   const [isLoading, getData] = usePending(handlePetitionDetail);
+  const [isLoadingSideAllowedPeition, getSideAllowedPetition] =usePending(handleSideAllowedPetition);
   
   useEffect(() => {
     getData();
-  }, []);
+    getSideAllowedPetition();
+    window.scrollTo(0, 0);
+  }, [idx]);
 
   useEffect(() => {
     setDetailData(PetitionDetailData);
   }, [PetitionDetailData]);
+
+  useEffect(() => {
+    if (allowedPetitions) {
+      let itemList = [];
+      for (let i = 0; i <allowedPetitions.length; i ++) {
+        itemList.push(<SideAllowedPetitionItem key={allowedPetitions[i].idx} count={i} item={allowedPetitions[i]}/>);
+      }
+      setSideAllowedPetition(itemList);
+    }
+  }, [allowedPetitions]);
 
   return (
     <PetitionDetailTemplate
       detailData={detailData}
       commentContentsObj = {GroupingState('commentContents', commentContents, setCommentContents)}
       handleWriteCommentFunc = {handleWriteComment}
+      handlePetitionDelete={handlePetitionDelete}
+      handleWritePagePath={handleWritePagePath}
+      sideAllowedPetition={sideAllowedPetition}
     />
   );
 };

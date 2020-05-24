@@ -42,6 +42,23 @@ class AdminStore {
   }
 
   @action
+  async deletePeition (idx) {
+    try {
+      const response = await AdminRepository.deletePetition(idx);
+
+      return new Promise((resolve, reject) => {
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
+    }
+  }
+
+  @action
   async searchMember (searchWord) {
     try {
       const response = await AdminRepository.searchMember(searchWord);      

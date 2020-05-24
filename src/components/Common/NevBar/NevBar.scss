@@ -2,7 +2,7 @@
 @import 'styles/typography/typography_scheme.scss';
 
 .CustomMargin {
-  margin-top: 30px;
+  // margin-top: 30px;
 }
 
 .NevBarTemplate {
@@ -47,13 +47,24 @@
   }
 
   &-mainButtonDiv {
-    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #ced4da;
+    width: 130px;
     height: 70px;
     margin-right: 500px;
+    margin-left: 80px;
+    // border-radius: 5px;
     &:hover {
       cursor: pointer;
     }
-    border: 1px solid black;
+
+    &-img {
+      width: 130px;
+      height: 110px;
+    }
   }
 
   &-loginButtonDiv {
