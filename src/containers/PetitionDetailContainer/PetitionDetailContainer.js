@@ -90,8 +90,10 @@ const PetitionDetailContainer = ({ store, history }) => {
         modal({
           title: 'Success!',
           stateType: 'success',
-          contents: '댓글을 작성 성공!'
+          contents: '댓글 작성 성공!'
         });
+
+        getData();
   
         return;
       })
