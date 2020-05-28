@@ -2,6 +2,7 @@
 @import 'styles/typography/typography_scheme.scss';
 
 .petitionItem {
+  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -24,8 +25,6 @@
     font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
     width: 150px;
     height: 100%;
-    
-    // border: 1px solid black;
   }
 
   &-title {
@@ -37,7 +36,6 @@
     width: 570px;
     height: 100%;
 
-    // border: 1px solid black;
   }
 
   &-date {
@@ -49,7 +47,6 @@
     width: 130px;
     height: 100%;
 
-    // border: 1px solid black;
   }
 
   &-voteCount {
@@ -61,7 +58,5 @@
     width: 150px;
     height: 100%;
     color: #364fc7;
-
-    // border: 1px solid black;
   }
 }

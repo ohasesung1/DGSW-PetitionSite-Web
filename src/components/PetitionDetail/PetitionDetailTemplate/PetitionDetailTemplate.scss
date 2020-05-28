@@ -270,6 +270,56 @@
     min-height: 1000px;
     border-left: 1px solid #adb5bd;
 
+    &-adminButtonsDiv {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100px;
+
+      &-deleteButtonDiv {
+        width: 110px;
+        height: 60px;
+        margin-right: 30px;
+
+        &-deleteButton {
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: #003366;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          font-size: 15px;
+          color: white;
+          outline: 0px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &-blindButtonDiv {
+        width: 110px;
+        height: 60px;
+
+        &-blindButton {
+          width: 100%;
+          height: 100%;
+          border: none;
+          font-size: 15px;
+          background-color: #003366;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          color: white;
+          outline: 0px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
     &-petitionWriteDiv {
       display: flex;
       flex-direction: column;

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 const cx = classNames.bind(style);
 
-const PetitionWriteTemplate = ({titleObj, contentsObj, categoryObj, handleWritePetition, history}) => {
+const PetitionWriteTemplate = ({titleObj, contentsObj, categoryObj, handleWritePetition, history, handleContentsLegnth, handleTitleLength}) => {
   const { title, setTitle } = titleObj;
   const { contents, setContents } = contentsObj;
   const { category, setCategory } = categoryObj;
@@ -58,8 +58,9 @@ const PetitionWriteTemplate = ({titleObj, contentsObj, categoryObj, handleWriteP
           <span>청원 제목</span>
         </div>
         <div className={cx('PetitionWriteTemplate-titleDiv-titleInputDiv')}>
-          <input className={cx('PetitionWriteTemplate-titleDiv-titleInputDiv-titleInput')} value={title} onChange={(e) => setTitle(e.target.value)}/>
+          <input className={cx('PetitionWriteTemplate-titleDiv-titleInputDiv-titleInput')} value={title} onChange={(e) => handleTitleLength(e)}/>
         </div>
+        <span className={cx('PetitionWriteTemplate-titleDiv-title-titleLength')}>{title.length}/50자</span>
       </div>
       <div className={cx('PetitionWriteTemplate-categoryDiv')}>
         <div className={cx('PetitionWriteTemplate-categoryDiv-title')}>
@@ -85,7 +86,10 @@ const PetitionWriteTemplate = ({titleObj, contentsObj, categoryObj, handleWriteP
           <span>청원내용</span>
         </div>
         <div className={cx('PetitionWriteTemplate-contentsBox-contentsDiv')}>
-          <textarea className={cx('PetitionWriteTemplate-contentsBox-contentsDiv-contents')} value={contents} onChange={(e) => setContents(e.target.value)}/>
+          <textarea className={cx('PetitionWriteTemplate-contentsBox-contentsDiv-contents')} value={contents} onChange={(e) => handleContentsLegnth(e)}/>
+        </div>
+        <div className={cx('PetitionWriteTemplate-contentLengthDiv')}>
+          {contents.length}/1000자
         </div>
       </div>
       <div className={cx('PetitionWriteTemplate-buttonDiv')}>

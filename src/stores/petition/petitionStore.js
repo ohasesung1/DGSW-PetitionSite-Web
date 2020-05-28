@@ -125,6 +125,41 @@ class petitionStore {
     }
   }
 
+  
+  @action
+  async deletePetition (idx) { //  청원 상세조회 후  Repository 함수를 통해 저장
+    try {
+      const response = await petitionRepository.deletePetition(idx);
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
+  async blindPetition (request) { //  청원 상세조회 후  Repository 함수를 통해 저장
+    try {
+      const response = await petitionRepository.blindPetition(request);
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
   @action
   async writePetition (request) { // 청원 작성
     try {

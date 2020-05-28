@@ -41,6 +41,13 @@ function App() {
             render={() => <Pages.PetitionDetail/>}
             />
       </Switch>
+      <Switch>
+          <Route
+            exact
+            path='/student-council'
+            render={() => <Pages.StudentCouncil/>}
+            />
+      </Switch>
       <Modal />
     </>
   );

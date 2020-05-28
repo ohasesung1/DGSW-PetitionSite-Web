@@ -99,7 +99,7 @@ const PetitionTemplate = ({
               <span>청원 날짜</span>
             </div>
             <div className={cx('PetitionTemplate-header-kinds-voteCount')}>
-              <span>투표수</span>
+              <span>참여 수</span>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ const PetitionTemplate = ({
           allowedPetitionsItem
           : allowedPetitionsItem.length === 0 ?
             <div className={cx('notFoundPeition')}>
-              승인 된 청원 글이 없습니다.
+              청원 글이 없습니다.
             </div>
             :<></>
         }
@@ -150,6 +150,9 @@ const PetitionTemplate = ({
           <div className={cx('Category-CategoryRowTwo-contentsDiv',  {'Category-CategoryRowTwo-contentsDiv-contentsStyle': category === '급식'})}  onClick={() => handleCategory('급식')}>
             <span>급식</span>
           </div>
+          <div className={cx('Category-CategoryRowTwo-contentsDiv',  {'Category-CategoryRowTwo-contentsDiv-contentsStyle': category === '학생회'})}  onClick={() => handleCategory('학생회')}>
+            <span>학생회</span>
+          </div>
         </div>
       </div>
       <div className={cx('PetitionTemplate')}>
@@ -182,7 +185,7 @@ const PetitionTemplate = ({
             <span>청원 날짜</span>
             </div>
             <div className={cx('PetitionTemplate-header-kinds-voteCount')}>
-            <span>투표수</span>
+            <span>참여 수</span>
             </div>
         </div>
         {

@@ -62,6 +62,36 @@ class petitionRepository {
     }
   }
 
+  async deletePetition (idx) {//  청원 삭제 요청 함수
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+
+    try {
+      const { data } = await axios.delete(`${SERVER}/petition?idx=${idx}`, {
+        headers: {
+          'x-access-token' : token,
+        }
+      });
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async blindPetition (request) {//  청원 삭제 요청 함수
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+
+    try {
+      const { data } = await axios.post(`${SERVER}/petition/blind`, request, {
+        headers: {
+          'x-access-token' : token,
+        }
+      });
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async writePetition (request) { // 청원 작성 요청 함수
     // 토큰 가져오기
     const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 

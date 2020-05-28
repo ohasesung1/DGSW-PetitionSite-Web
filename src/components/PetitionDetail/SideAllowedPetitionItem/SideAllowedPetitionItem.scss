@@ -13,14 +13,11 @@
   }
 
   &-titleDiv {
-    display: flex;
-    align-items: center;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
     width: 250px;
-    height: 30px;
     &:hover {
       text-decoration: underline;
     }

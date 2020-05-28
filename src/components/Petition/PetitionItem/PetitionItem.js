@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import style from './PetitionItem.scss';
 import { withRouter } from 'react-router-dom';
@@ -9,11 +9,13 @@ const cx = classNames.bind(style);
 
 const PetitionItem = ({ item, history }) => {
   // 데이터 가져오기
-  let { category, joinDate, title, commentCount, idx } = item;
+  let { category, joinDate, title, voteCount, idx, blind } = item;
+
+  const [isBlind, setIsBlind] = useState(false);
 
   // 동의 댓글이 없을 경우 0 처리
-  if (!commentCount) {
-    commentCount = 0;
+  if (!voteCount) {
+    voteCount = 0;
   }
 
   const handlePetitionDetail = async () => {
@@ -24,9 +26,19 @@ const PetitionItem = ({ item, history }) => {
 
   // 데이트 포맷
   const joinDateFormat = moment(joinDate).format('YYYY.MM.DD');
+
+  useEffect(() => {
+    if (blind === 1) {
+      setIsBlind(true);
+    }
+  }, []);
   
   return (
-    <div className={cx('petitionItem')} onClick={() => handlePetitionDetail(idx)}>
+    <>
+    {
+      isBlind ?
+      <></>
+      :  <div className={cx('petitionItem')} onClick={() => handlePetitionDetail(idx)}>
       <div className={cx('petitionItem-category')}>
         <span>{category}</span>
       </div>
@@ -37,9 +49,11 @@ const PetitionItem = ({ item, history }) => {
         <span>{joinDateFormat}</span>
       </div>
       <div className={cx('petitionItem-voteCount')}>
-        <span>{commentCount}</span>
+        <span>{voteCount}</span>
       </div>
     </div>
+    }
+    </>
   )
 };
 

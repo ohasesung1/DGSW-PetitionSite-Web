@@ -27,6 +27,34 @@ const PetitionWriteContainer = ({ store, history }) => {
     history.push(path);
   };
 
+  const handleContentsLegnth = async (event) => {
+    if (1000 < event.target.value.length) {
+      await modal({
+        title: 'Warning!',
+        stateType: 'warning',
+        contents: '1000자 이내로 작성해 주세요.'
+      });
+
+      return;
+    }
+
+    setContents(event.target.value);
+  };
+
+  const handleTitleLength = async (event) => {
+    if (50 < event.target.value.length) {
+      await modal({
+        title: 'Warning!',
+        stateType: 'warning',
+        contents: '제목은 50자 이내로 작성해 주세요.'
+      });
+
+      return;
+    }
+
+    setTitle(event.target.value);
+  };
+
   const handleBlockedNavigation = nextLocation => {
     if (!isConfirmed) {  
       modal({
@@ -156,6 +184,8 @@ const PetitionWriteContainer = ({ store, history }) => {
       categoryObj={GroupingState('category', category, setCategory)}
       handleWritePetition={handleWritePetition}
       history={history}
+      handleContentsLegnth={handleContentsLegnth}
+      handleTitleLength={handleTitleLength}
     />
     </>
   );

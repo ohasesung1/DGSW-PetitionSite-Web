@@ -4,26 +4,131 @@ import usePending from 'lib/HookState/usePending';
 import PetitionDetailTemplate from 'components/PetitionDetail/PetitionDetailTemplate';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import SecureLS from 'secure-ls';
 import SideAllowedPetitionItem from 'components/PetitionDetail/SideAllowedPetitionItem/SideAllowedPetitionItem';
 import GroupingState from 'lib/HookState/GroupingState';
 import TokenVerification from 'lib/Token/TokenVerification';
 
 const PetitionDetailContainer = ({ store, history }) => {
-  const { getPetitionDetail, PetitionDetailData, writePetitionComment, getPetitionFeed, allowedPetitions} = store.petitionStore;
-  const { deletePeition } = store.adminStore;
+  const { getPetitionDetail, PetitionDetailData, deletePetition, blindPetition, writePetitionComment, getPetitionFeed, allowedPetitions} = store.petitionStore;
+  // const { deletePeition } = store.adminStore;
   const { modal } = store.dialog;
   const [detailData, setDetailData] = useState({});
   const [commentContents, setCommentContents] = useState('');
   const [sideAllowedPetition, setSideAllowedPetition] = useState([]);
+  const [adminAuth, setAdminAuth] = useState(false);
 
   const idx = localStorage.getItem("petition-idx");
+
+  
+  const ls = new SecureLS({ encodingType: 'aes' });
+
+  const userInfo = ls.get('user-info');
+
+
+  const handleBlindPetition = async (idx) => {
+
+    const data = {
+      idx,
+    };
+
+    await modal({
+      modalType: 'basic',
+      title: 'Warning!',
+      contents: '해당 청원 글을 블라인드 처리하시겠습니까?',
+      confirmFunc: async () => {
+        await blindPetition(data).
+          then((response) => {
+            modal({
+              title: 'Success!',
+              stateType: 'success',
+              contents: '청원이 성공적으로 블라인드 처리되었습니다.',
+            });
+            history.push('/');
+          })
+          .catch((error) => {
+            const { status } = error.response;
+            if (status === 403) {
+              modal({
+                title: 'Error!',
+                stateType: 'error',
+                contents: '권한 없음!'
+              });
+    
+              return;
+            }
+    
+            if (status === 500) {
+              modal({
+                title: 'Error!',
+                stateType: 'error',
+                contents: '서버 에러! 조금만 기다려 주세요. (__)'
+              });
+    
+              return;
+            }
+          });
+      }
+    });
+  };
+
+  const handleadminAuth = () => {
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+
+    if (token) {
+      if (userInfo.accessLevel === 0) {
+        setAdminAuth(true);
+      } else if (userInfo.accessLevel === 1) {
+        return;
+      }
+    } else {
+      return;
+    }
+  };
 
   const handlePetitionDetail = async () => {
     await getPetitionDetail(idx);
   };
 
   const handlePetitionDelete = async (idx) => {
-    await deletePeition(idx)
+    await modal({
+      modalType: 'basic',
+      title: 'Warning!',
+      contents: '해당 청원 글을 삭제 하시겠습니까?',
+      confirmFunc: async () => {
+        await deletePetition(idx).
+          then((response) => {
+            modal({
+              title: 'Success!',
+              stateType: 'success',
+              contents: '청원이 성공적으로 삭제 되었습니다.',
+            });
+            history.push('/');
+          })
+          .catch((error) => {
+            const { status } = error.response;
+            if (status === 400) {
+              modal({
+                title: 'Error!',
+                stateType: 'error',
+                contents: '양식이 맞지 않아요!'
+              });
+    
+              return;
+            }
+    
+            if (status === 500) {
+              modal({
+                title: 'Error!',
+                stateType: 'error',
+                contents: '서버 에러! 조금만 기다려 주세요. (__)'
+              });
+    
+              return;
+            }
+          });
+      }
+    });
   };
 
   const handleWritePagePath = async () => {
@@ -148,6 +253,9 @@ const PetitionDetailContainer = ({ store, history }) => {
   const [isLoadingSideAllowedPeition, getSideAllowedPetition] =usePending(handleSideAllowedPetition);
   
   useEffect(() => {
+    handleadminAuth();
+  }, []);
+  useEffect(() => {
     getData();
     getSideAllowedPetition();
     window.scrollTo(0, 0);
@@ -175,6 +283,8 @@ const PetitionDetailContainer = ({ store, history }) => {
       handlePetitionDelete={handlePetitionDelete}
       handleWritePagePath={handleWritePagePath}
       sideAllowedPetition={sideAllowedPetition}
+      adminAuth={adminAuth}
+      handleBlindPetition={handleBlindPetition}
     />
   );
 };

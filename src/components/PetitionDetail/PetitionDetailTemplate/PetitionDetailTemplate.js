@@ -12,9 +12,16 @@ import { AiOutlineCaretDown } from 'react-icons/ai';
 
 const cx = classNames.bind(style);
 
-const PetitionDetailTemplate = ({ detailData, commentContentsObj,  handleWriteCommentFunc, handleWritePagePath, sideAllowedPetition}) => {
+const PetitionDetailTemplate = ({ detailData,adminAuth,
+    commentContentsObj,
+    handlePetitionDelete,
+    handleWriteCommentFunc, 
+    handleWritePagePath,
+    sideAllowedPetition,
+    handleBlindPetition
+  }) => {
 
-  const { idx, title, contents, category, joinDate, id, blind, comment } = detailData;
+  const { idx, title, contents, category, joinDate, id, blind, comment, voteCount } = detailData;
   let { isAllowed } = detailData;
   
 
@@ -24,7 +31,6 @@ const PetitionDetailTemplate = ({ detailData, commentContentsObj,  handleWriteCo
   const [commentArray, setCommentArray] = useState([]);
 
   let memberIdLength;
-  let commentLength;
   
   if (isAllowed === 0) {
     isAllowed = '승인 대기 중';
@@ -36,10 +42,6 @@ const PetitionDetailTemplate = ({ detailData, commentContentsObj,  handleWriteCo
     for (let i = 1; i < id.length; i++) {
       memberIdLength += '*';
     };
-  }
-
-  if (comment) {
-    commentLength = comment.length;
   }
 useEffect(() => {
   if (comment) {
@@ -58,7 +60,7 @@ useEffect(() => {
             <span>{title}</span>
           </div>
           <div className={cx('PetitionDetailTemplate-contentsDiv-titleDiv-voteDiv')}>
-            <span>참여 인원: [ </span><span className={cx('categoryColor')}>{commentLength}</span> <span>명 ]</span>
+            <span>참여 인원: [ </span><span className={cx('categoryColor')}>{voteCount}</span> <span>명 ]</span>
           </div>
           <div className={cx('PetitionDetailTemplate-contentsDiv-titleDiv-infoDiv')}>
             <div className={cx('PetitionDetailTemplate-contentsDiv-titleDiv-infoDiv-categoryDiv')}>
@@ -106,7 +108,7 @@ useEffect(() => {
         <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv')}>
           <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-titleDiv')}>
             <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-titleDiv-title')}>
-              <span>청원 동의 {commentLength}명</span>
+              <span>청원 동의 {voteCount}명</span>
             </div>
           </div>
           <div className={cx('PetitionDetailTemplate-contentsDiv-commentDiv-commentWriteDiv')}>
@@ -143,6 +145,18 @@ useEffect(() => {
           </div>
           {sideAllowedPetition}
         </div>
+        {
+          adminAuth ?
+            <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv')}>
+              <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-deleteButtonDiv')}>
+                <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-deleteButtonDiv-deleteButton')} onClick={() => handlePetitionDelete(idx)}>청원 삭제</button>
+              </div>
+              <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-blindButtonDiv')}> 
+                <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-blindButtonDiv-blindButton')} onClick={() => handleBlindPetition(idx)}>청원 블라인드</button>
+              </div>
+            </div>
+            : <></>
+        }
       </div>
     </div>
   );
