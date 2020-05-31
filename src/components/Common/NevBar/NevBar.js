@@ -39,6 +39,16 @@ const NevBar = ({ url, store, history, isBackground }) => {
       return;
     }
 
+    if (propUrl === '/student-council' && (token === 'empty' || userInfo.accessLevel === 2)) {
+      modal({
+        title: 'Warning!',
+        stateType: 'warning',
+        contents: '접근 권한 없음! (관리자 계정으로 다시 시도 해주세요!)'
+      });
+
+      return;
+    }
+
     if (propUrl === '/petition-write' && (token === 'empty')) {
       modal({
         title: 'Warning!',

@@ -77,7 +77,37 @@ class petitionRepository {
     }
   }
 
-  async blindPetition (request) {//  청원 삭제 요청 함수
+  async allowPetition (request) {//  청원 승인 요청 함수
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+
+    try {
+      const { data } = await axios.post(`${SERVER}/petition/allow`, request, {
+        headers: {
+          'x-access-token' : token,
+        }
+      });
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getStudentCouncilPetition (page, limit, type) {//  학생회 전용 청원 조회 요청 함수
+    const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
+
+    try {
+      const { data } = await axios.get(`${SERVER}/petition/get_student_council?page=${page}&limit=${limit}&type=${type}`, {
+        headers: {
+          'x-access-token' : token,
+        }
+      });
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async blindPetition (request) {//  청원 블라인드 요청 함수
     const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
 
     try {

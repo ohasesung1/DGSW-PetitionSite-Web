@@ -12,17 +12,26 @@ class petitionStore {
   @observable allowedPetitionTotalPage = 1; // 승인된 청원 페이지 개수
   @observable allowedPetitionPageIndex = 1; // 승인된 청원 페이지 index
 
-  @observable petitionComment = [];
+  @observable studentCouncilPetitions = []; // 학생회 전용 청원 페이지 목록
+  @observable studentCouncilPetitionsTotalpage = 1;
+  @observable studentCouncilPetitionsPageIndex = 1;
 
-  @observable PetitionDetailData = {};
+  @observable petitionComment = []; // 청원 댓글
+
+  @observable PetitionDetailData = {}; // 청원 상세 조회 변수
 
   @action
-  handleAllowedPage(pageIndex) {
+  handleAllowedPage(pageIndex) { // item index 리스트 설정 handleStudentCouncilPage
     this.allowedPetitionPageIndex = pageIndex;
   }
 
   @action
-  handleAllPage(pageIndex) {
+  handleStudentCouncilPage(pageIndex) { // item index 리스트 설정
+    this.studentCouncilPetitionsPageIndex = pageIndex;
+  }
+
+  @action
+  handleAllPage(pageIndex) { // item index 리스트 설정
     this.categoryPetitionPageIndex = pageIndex;
   }
 
@@ -147,6 +156,43 @@ class petitionStore {
   async blindPetition (request) { //  청원 상세조회 후  Repository 함수를 통해 저장
     try {
       const response = await petitionRepository.blindPetition(request);
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
+  async allowPetition (request) { //  청원 상세조회 후  Repository 함수를 통해 저장
+    try {
+      const response = await petitionRepository.allowPetition(request);
+
+      return new Promise((resolve, reject) => { // resonse 비동기 처리
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+      
+      return new Promise((resolve, reject) => { // 에러 catch
+        reject(error);
+      });
+    }
+  }
+
+  @action
+  async getStudentCouncilPetition (page, limit, type) { //  청원 상세조회 후  Repository 함수를 통해 저장
+    try {
+      const response = await petitionRepository.getStudentCouncilPetition(page, limit, type);
+
+      this.studentCouncilPetitions = response.data.petition;
+      this.studentCouncilPetitionsTotalpage = response.data.totalPage;
 
       return new Promise((resolve, reject) => { // resonse 비동기 처리
         resolve(response);

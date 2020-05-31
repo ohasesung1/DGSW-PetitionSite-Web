@@ -1,0 +1,154 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.ItemIndexListTemplate {
+  display: flex;
+  flex-direction: row;
+}
+
+.StudentCouncilTemplate {
+  width: 1000px;
+  min-height: 600px;
+  margin-top: 80px;
+  // border: 1px solid black;
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // border: 1px solid black;
+
+    &-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+      margin-top: 5px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      border-bottom: 3px solid #343a40;
+      
+
+      &-categoryDiv {
+        display: flex;
+        align-items: center;
+        width: 265px;
+        height: 40px;
+        margin: auto 0px auto auto;
+        font-size: 15px;
+        // border: 1px solid black;
+
+        &-buttonDiv {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+
+          &-blindButton {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border: 2px solid #003366;
+            font-size: 11px;
+            color: #003366;
+            outline: 0px;
+            align-items: center;
+            width: 90px;
+            margin-left: 30px;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+            cursor: pointer;
+            transition: ease-out .2s;
+
+            &:hover {
+              background-color: #003366;
+              color: white;
+            }
+          }
+
+          &-NotAllowButton {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border: 2px solid #003366;
+            font-size: 11px;
+            color: #003366;
+            outline: 0px;
+            align-items: center;
+            width: 90px;
+            margin-left: 60px;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+            cursor: pointer;
+            transition: ease-out .2s;
+
+            &:hover {
+              background-color: #003366;
+              color: white;
+            }
+          }
+        }
+
+        
+      }
+    }
+
+    &-kinds {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      // border-bottom: 1px solid #adb5bd;
+      // margin-bottom: 5px;
+
+      &-category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 150px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+
+      &-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 570px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+
+      &-date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 130px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+
+      &-voteCount {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 150px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+    }
+  }
+}

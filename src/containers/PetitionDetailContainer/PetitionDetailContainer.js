@@ -10,7 +10,7 @@ import GroupingState from 'lib/HookState/GroupingState';
 import TokenVerification from 'lib/Token/TokenVerification';
 
 const PetitionDetailContainer = ({ store, history }) => {
-  const { getPetitionDetail, PetitionDetailData, deletePetition, blindPetition, writePetitionComment, getPetitionFeed, allowedPetitions} = store.petitionStore;
+  const { getPetitionDetail, PetitionDetailData, deletePetition, allowPetition, blindPetition, writePetitionComment, getPetitionFeed, allowedPetitions} = store.petitionStore;
   // const { deletePeition } = store.adminStore;
   const { modal } = store.dialog;
   const [detailData, setDetailData] = useState({});
@@ -24,6 +24,62 @@ const PetitionDetailContainer = ({ store, history }) => {
   const ls = new SecureLS({ encodingType: 'aes' });
 
   const userInfo = ls.get('user-info');
+
+  const handleAllowPetition = async (idx) => {
+
+    const data = {
+      idx,
+    };
+
+    await modal({
+      modalType: 'basic',
+      title: 'Warning!',
+      contents: '해당 청원 글을 승인 처리하시겠습니까?',
+      confirmFunc: async () => {
+        await allowPetition(data).
+          then((response) => {
+            modal({
+              title: 'Success!',
+              stateType: 'success',
+              contents: '청원이 성공적으로 승인 처리되었습니다.',
+            });
+          })
+          .catch((error) => {
+            const { status } = error.response;
+
+            if (status === 405) {
+              modal({
+                title: 'Error!',
+                stateType: 'error',
+                contents: '이미 승인 처리 된 청원입니다.'
+              });
+    
+              return;
+            }
+
+            if (status === 403) {
+              modal({
+                title: 'Error!',
+                stateType: 'error',
+                contents: '권한 없음!'
+              });
+    
+              return;
+            }
+    
+            if (status === 500) {
+              modal({
+                title: 'Error!',
+                stateType: 'error',
+                contents: '서버 에러! 조금만 기다려 주세요. (__)'
+              });
+    
+              return;
+            }
+          });
+      }
+    });
+  };
 
 
   const handleBlindPetition = async (idx) => {
@@ -285,6 +341,7 @@ const PetitionDetailContainer = ({ store, history }) => {
       sideAllowedPetition={sideAllowedPetition}
       adminAuth={adminAuth}
       handleBlindPetition={handleBlindPetition}
+      handleAllowPetition={handleAllowPetition}
     />
   );
 };

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 const cx = classNames.bind(style);
 
-const PetitionItem = ({ item, history }) => {
+const PetitionItem = ({ item, history, isStudent }) => {
   // 데이터 가져오기
   let { category, joinDate, title, voteCount, idx, blind } = item;
 
@@ -36,7 +36,7 @@ const PetitionItem = ({ item, history }) => {
   return (
     <>
     {
-      isBlind ?
+      isBlind && !isStudent?
       <></>
       :  <div className={cx('petitionItem')} onClick={() => handlePetitionDetail(idx)}>
       <div className={cx('petitionItem-category')}>

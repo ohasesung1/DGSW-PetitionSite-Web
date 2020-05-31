@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes  from 'prop-types';
 import classNames from 'classnames/bind';
-import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 import ReactPlayer from 'react-player';
 import style from './PetitionDetailTemplate.scss';
 import { BsFillCircleFill } from 'react-icons/bs';
 import schoolImage from 'assets/image/schoolImage.jpg';
 import PetitionCommentItem from 'components/PetitionDetail/PetitionCommentItem/PetitionCommentItem';
-import { AiOutlineCaretDown } from 'react-icons/ai';
 
 const cx = classNames.bind(style);
 
@@ -18,7 +16,8 @@ const PetitionDetailTemplate = ({ detailData,adminAuth,
     handleWriteCommentFunc, 
     handleWritePagePath,
     sideAllowedPetition,
-    handleBlindPetition
+    handleBlindPetition,
+    handleAllowPetition
   }) => {
 
   const { idx, title, contents, category, joinDate, id, blind, comment, voteCount } = detailData;
@@ -147,6 +146,10 @@ useEffect(() => {
         </div>
         {
           adminAuth ?
+          <>
+            <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv')}>
+              <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-allowButton')} onClick={() => handleAllowPetition(idx)}>청원 승인</button>
+            </div>
             <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv')}>
               <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-deleteButtonDiv')}>
                 <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-deleteButtonDiv-deleteButton')} onClick={() => handlePetitionDelete(idx)}>청원 삭제</button>
@@ -155,6 +158,7 @@ useEffect(() => {
                 <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-blindButtonDiv-blindButton')} onClick={() => handleBlindPetition(idx)}>청원 블라인드</button>
               </div>
             </div>
+            </>
             : <></>
         }
       </div>

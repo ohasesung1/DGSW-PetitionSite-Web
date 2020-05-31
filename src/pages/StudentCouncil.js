@@ -6,7 +6,7 @@ const StudentCouncil = () => {
   return (
     <>
       <PageTemplate url={'/StudentCouncil'}>
-        
+        <StudentCouncilContainer/>
       </PageTemplate>
     </>
   );
