@@ -7,7 +7,7 @@ import SecureLS from 'secure-ls';
 import PropTypes from 'prop-types';
 import sha512 from 'js-sha512';
 
-const SignInContainer = ({ store, history }) => {
+const SignInContainer = ({ store, history, setIsSignUp, setIsLogin }) => {
   const { handleSignIn } = store.sign;
   const { modal } = store.dialog;
 
@@ -94,6 +94,8 @@ const SignInContainer = ({ store, history }) => {
     isSesstionObj={GroupingState('isSesstion', isSesstion, setIsSesstion)}
     userSignIn={userSignIn}
     guestLogin={guestLogin}
+    setIsSignUp={setIsSignUp}
+    setIsLogin={setIsLogin}
     />
   );
 };

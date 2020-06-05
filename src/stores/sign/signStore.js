@@ -38,6 +38,23 @@ class signStore {
       });
     }
   }
+
+  @action
+  async handelCheckId (request) {
+    try {
+      const response = await signRepository.handelCheckId(request);
+
+      return new Promise((resolve, reject) => {
+        resolve(response);
+      });
+    } catch (error) {
+      console.error(error);
+
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
+    }
+  }
 }
 
 export default signStore;

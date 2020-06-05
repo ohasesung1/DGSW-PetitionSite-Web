@@ -5,7 +5,7 @@ import style from './SignInTemplate.scss';
 
 const cx = classnames.bind(style);
 
-const SignInTemplate = ({ idObj, pwObj, userSignIn, isSesstionObj, guestLogin }) => {
+const SignInTemplate = ({ idObj, pwObj, userSignIn, isSesstionObj, guestLogin, setIsSignUp, setIsLogin }) => {
 
   const { id, setId } = idObj;
   const { pw, setPw } = pwObj;
@@ -41,7 +41,7 @@ const SignInTemplate = ({ idObj, pwObj, userSignIn, isSesstionObj, guestLogin })
             <button className={cx('SignInTemplate-buttonBox-loginButtonBox-loginButton')} onClick={() => userSignIn()}>로그인</button>
           </div>
           <div className={cx('SignInTemplate-buttonBox-signUpButtonBox')}>
-            <button className={cx('SignInTemplate-buttonBox-signUpButtonBox-signUpButton')}>회원가입</button>
+            <button className={cx('SignInTemplate-buttonBox-signUpButtonBox-signUpButton')} onClick={() => { setIsSignUp(true); setIsLogin(false)}}>회원가입</button>
           </div>
         </div>
         <div className={cx('SignInTemplate-guestButtonBox')}>

@@ -19,6 +19,15 @@ class signRepository {
       throw error;
     }
   }
+
+  async handelCheckId (request) {
+    try {
+      const { data } = await axios.post(`${SERVER}/auth/find/id`, request);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default new signRepository();
