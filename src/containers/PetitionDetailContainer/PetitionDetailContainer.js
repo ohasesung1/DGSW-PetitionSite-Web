@@ -82,23 +82,30 @@ const PetitionDetailContainer = ({ store, history }) => {
   };
 
 
-  const handleBlindPetition = async (idx) => {
-
+  const handleBlindPetition = async (idx, isBlind) => {
+    let guideStr = '';
     const data = {
       idx,
+      isBlind,
     };
+
+    if (!isBlind) {
+      guideStr = '블라인드 해제';
+    } else {
+      guideStr = '블라인드';
+    }
 
     await modal({
       modalType: 'basic',
       title: 'Warning!',
-      contents: '해당 청원 글을 블라인드 처리하시겠습니까?',
+      contents: `해당 청원 글을 ${guideStr} 처리하시겠습니까?`,
       confirmFunc: async () => {
         await blindPetition(data).
           then((response) => {
             modal({
               title: 'Success!',
               stateType: 'success',
-              contents: '청원이 성공적으로 블라인드 처리되었습니다.',
+              contents: `청원이 성공적으로 ${guideStr} 처리되었습니다.`,
             });
             history.push('/');
           })
@@ -226,16 +233,6 @@ const PetitionDetailContainer = ({ store, history }) => {
         title: 'Warning!',
         stateType: 'warning',
         contents: '댓글을 작성 해주세요.'
-      });
-
-      return;
-    }
-
-    if (commentContents !== '동의 합니다' && commentContents !== '동의 합니다.') {
-      await modal({
-        title: 'Warning!',
-        stateType: 'warning',
-        contents: '동의 내용은 "동의 합니다."의 문장만 허용 됩니다.'
       });
 
       return;

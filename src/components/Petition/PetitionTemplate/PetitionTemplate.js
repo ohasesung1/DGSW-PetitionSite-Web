@@ -41,6 +41,7 @@ const PetitionTemplate = ({
   }
 
   const [title, setTitle] = useState('');
+  const [categoryTitle, setCategoryTitle] = useState('');
 
   const handleKeypressForTypePetition = (e) => {
     if (e.key === 'Enter') {
@@ -50,7 +51,7 @@ const PetitionTemplate = ({
 
   const handleKeyPressForCategory = (e) => {
     if (e.key === 'Enter') {
-      handleSearchCategoryPetition(title);
+      handleSearchCategoryPetition(categoryTitle);
     }
   };
 
@@ -164,8 +165,8 @@ const PetitionTemplate = ({
                 category === '전체' ? 
                 <>
                     <span>청원 검색:</span>
-                    <input className={cx('PetitionTemplate-header-title-searchDiv-searchInput')} placeholder={'청원 제목'} value={title} onChange={(e) => { handleSearchCategoryPetition(e.target.value); setTitle(e.target.value)}} onKeyPress={(e) => handleKeyPressForCategory(e)}/>
-                    <div className={cx('PetitionTemplate-header-title-searchDiv-iconDiv')} onClick={() => handleSearchCategoryPetition(title)}>
+                    <input className={cx('PetitionTemplate-header-title-searchDiv-searchInput')} placeholder={'청원 제목'} value={categoryTitle} onChange={(e) => { handleSearchCategoryPetition(e.target.value); setCategoryTitle(e.target.value)}} onKeyPress={(e) => handleKeyPressForCategory(e)}/>
+                    <div className={cx('PetitionTemplate-header-title-searchDiv-iconDiv')} onClick={() => handleSearchCategoryPetition(categoryTitle)}>
                       <FiSearch className={cx('PetitionTemplate-header-title-searchDiv-iconDiv-icon')}/>
                     </div>
                 </>
