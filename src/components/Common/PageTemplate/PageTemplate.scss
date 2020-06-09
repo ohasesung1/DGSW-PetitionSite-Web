@@ -1,0 +1,54 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+
+.PageTemplate {
+  width: 100%;
+  min-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  &-header {
+    position: fixed;
+    width: 100%;
+    min-width: 1200px;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    z-index: 2;
+  }
+
+  &-bottom {
+    position: absolute;
+    width: 100%;  
+    height: 100px;
+    bottom: 0;
+  }
+
+  &-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 150px;
+    width: 100%;
+    min-width: 1200px;
+    min-height: 969px;
+    padding-bottom: 100px;
+  }
+
+  &-haederBackground {
+    // position: absolute;
+    width: 100%;
+    height: 500px;
+
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

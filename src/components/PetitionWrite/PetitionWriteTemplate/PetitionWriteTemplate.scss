@@ -1,0 +1,202 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.PetitionWriteTemplate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 850px;
+  min-height: 1000px;
+  margin-bottom: 100px;
+  // border: 1px solid black;
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    font-size: 23px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    // border: 1px solid black;
+  }
+
+  &-guideContentOne {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    border: 1px solid #dee2e6;
+    background-color: #f1f3f5;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+
+    &-title {
+      padding-left: 20px;
+      padding-top: 20px;
+      font-size: 17px;
+      margin: 0px auto 0px 0px;
+    }
+
+    &-list {
+      padding: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  &-guideContentTwo {
+    width: 100%;
+    height: 350px;
+    margin-top: 10px;
+    background-color: #f1f3f5;
+    border: 1px solid #dee2e6;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+
+    &-title {
+      padding-left: 20px;
+      padding-top: 20px;
+      font-size: 17px;
+      margin: 0px auto 0px 0px;
+    }
+
+    &-list {
+      padding: 10px;
+      margin-right: 10px;
+      list-style-type: decimal;
+    }
+  }
+
+  &-centerLine {
+    width: 100%;
+    height: 0px;
+    margin-top: 20px;
+    // border: 1px solid black;
+  }
+
+  &-titleDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    width: 100%;
+    height: 100px;
+    // border: 1px solid black;
+
+    &-title {
+      font-size: 17px;
+      padding: 5px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+
+      &-titleLength {
+        padding-top: 8px;
+        padding-left: 7px;
+        font-size: 14px;
+        color: $gray_4;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      }
+    }
+
+    &-titleInputDiv {
+      padding: 5px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+
+      &-titleInput {
+        width: 100%;
+        height: 40px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        font-size: 15px;
+        background-color: #f1f3f5;
+        // border: rgba(0, 0, 0, 0.55);
+        // padding-: 10px;
+        padding-left: 10px;
+        outline: 0px;
+      }
+    }
+  }
+
+  &-categoryDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100px;
+    &-title {
+      font-size: 17px;
+      padding: 5px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    }
+  }
+  &-contentsBox {
+    width: 100%;
+    height: 600px;
+    margin-top: 20px;
+
+    &-title {
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      font-size: 17px;
+      padding: 5px;
+    }
+
+    &-contentsDiv {
+      width: 750px;
+      height: 400px;
+      // border: 1px solid black;
+
+      &-contents { 
+        width: 100%;
+        height: 100%;
+        resize: none;
+        outline: 0px;
+        font-size: 15px;
+        background-color: #f8f9fa;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        padding: 2%;
+      }
+    }
+  }
+
+  &-buttonDiv {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    height: 50px;
+    margin-top: -60px;
+
+    &-button { 
+      margin-right: 30px;
+      width: 200px;
+      height: 100%;
+      outline: 0px;
+      cursor: pointer;
+      background-color: #003366;
+      font-size: 17px;
+      color: white;
+      border: 0px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    }
+
+    &-cancleButton {
+      margin-right: 30px;
+      width: 200px;
+      height: 100%;
+      outline: 0px;
+      cursor: pointer;
+      background-color: white;
+      border: 3px solid #003366;
+      font-size: 17px;
+      color: #003366;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    }
+  }
+
+  &-contentLengthDiv {
+    margin-top: 10px;
+    margin-right: 0px;
+    color: $gray_4;
+    font-size: 14px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+  }
+}

@@ -1,0 +1,27 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.IndexItemTemplate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #003366;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-select {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #003366;
+    color: #003366;
+    font-weight: bold;
+    background-color: white;
+  }
+}

@@ -1,0 +1,41 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.SideAllowedPetitionItem {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  width: 100%;
+  height: 35px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-titleDiv {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    width: 250px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-dateDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    width: 100px;
+    height: 100%;
+  }
+
+  &-countDiv {
+    width: 30px;
+    padding-left: 10px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    color: #003366;
+  }
+}

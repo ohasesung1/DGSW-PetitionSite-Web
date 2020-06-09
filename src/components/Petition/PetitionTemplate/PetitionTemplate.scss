@@ -1,0 +1,319 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.isAllowedSelectDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+  // border: 1px solid black;
+  margin: 0px auto auto auto;
+
+  &-allowedSelectDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 650px;
+    height: 40px;
+    color: gray;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    border-right: 1px solid #ced4da;
+    // border-h: 10%;
+    font-size: 20px;
+    transition: ease-out .2s;
+    
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-style {
+      color: black;
+      border-bottom: 3px solid #003366;
+    }
+  }
+
+  &-notAllowedSelectDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 650px;
+    height: 50px;
+    border-right: 1px solid #ced4da;
+    color: gray;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    font-size: 20px;
+    transition: ease-out .2s;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-style {
+      color: black;
+      border-bottom: 3px solid #003366;
+    }
+  }
+
+  &-orderPetitionSelectDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 650px;
+    height: 50px;
+    color: gray;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    font-size: 20px;
+    transition: ease-out .2s;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-style {
+      color: black;
+      border-bottom: 3px solid #003366;
+    }
+  }
+}
+
+.PetitionTemplate {
+  width: 1000px;
+  min-height: 600px;
+  margin-top: 80px;
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+      margin-top: 5px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      border-bottom: 3px solid #343a40;
+      
+
+      &-searchDiv {
+        display: flex;
+        align-items: center;
+        width: 265px;
+        height: 40px;
+        margin: auto 0px auto auto;
+        font-size: 15px;
+        // border: 1px solid black;
+
+        &-searchInput {
+          margin-left: 5px;
+          width: 150px;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          outline: 0px;
+          padding-left: 5px;
+          height: 35px;
+        }
+
+        &-iconDiv {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          margin-left: 5px;
+          &:hover {
+            cursor: pointer;
+          }
+          
+          &-icon {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    &-kinds {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      // border-bottom: 1px solid #adb5bd;
+      // margin-bottom: 5px;
+
+      &-category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 150px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+
+      &-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 570px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+
+      &-date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 130px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+
+      &-voteCount {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        width: 150px;
+        height: 100%;
+
+        // border: 1px solid black;
+      }
+    }
+  }
+}
+
+
+.Category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  height: 300px;
+  margin-top: 30px;
+  border: 2px solid #003366;
+
+  &-CategoryRowOne {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: -120px;
+    &-contentsDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 50px;
+      color: white;
+      background-color: #003366;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      font-size: 17px;
+      margin-right: 30px;
+      transition: ease-out .2s;
+  
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #003366;
+        border: 3px solid #003366;
+
+      }
+
+      
+      &-contentsStyle {
+        width: 150px;
+        height: 50px;
+        color: #003366;
+        background-color: white;
+        border: 3px solid #003366;
+      }
+    }
+  }
+
+  &-CategoryRowTwo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+
+    margin-top: 20px;
+    margin-left: 100px;
+    &-contentsDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 50px;
+      color: white;
+      background-color: #003366;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      font-size: 17px;
+      margin-right: 30px;
+      transition: ease-out .2s;
+  
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #003366;
+        border: 3px solid #003366;
+      }
+
+      
+      &-contentsStyle {
+        width: 150px;
+        height: 50px;
+        color: #003366;
+        background-color: white;
+        border: 3px solid #003366;
+      }
+    }
+  } 
+
+}
+
+.PetitionIndexItemTemplate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.CategoryTitile {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  width: 1000px;
+  font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+  height: 60px;
+  margin-bottom: -20px;
+}
+
+.notFoundPeition {
+  width: 100%;
+  height: 100%;
+  // border: 1px solid black;
+  font-size: 20px;
+  padding-top: 30px;
+  text-align: center;
+  font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+}

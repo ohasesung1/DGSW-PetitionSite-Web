@@ -1,0 +1,62 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.petitionItem {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #ced4da;
+  // border-bottom: 1px solid #ced4da;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-category {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: #364fc7;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    width: 150px;
+    height: 100%;
+  }
+
+  &-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    width: 570px;
+    height: 100%;
+
+  }
+
+  &-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    width: 130px;
+    height: 100%;
+
+  }
+
+  &-voteCount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+    width: 150px;
+    height: 100%;
+    color: #364fc7;
+  }
+}

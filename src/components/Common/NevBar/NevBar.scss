@@ -1,0 +1,90 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+.CustomMargin {
+  // margin-top: 30px;
+}
+
+.NevBarTemplate {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.55);
+
+  &-pageButtonDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    margin-left: 100px;
+    height: 80px;
+    // border: 1px solid black;
+  
+    &-buttonsDiv {
+      width: 200px;
+      height: 80px;
+
+      &-buttons{
+        width: 100%;
+        height: 100%;
+        border: none;
+        color: white;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 18px;
+        cursor: pointer;
+        outline: 0px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        transition: ease-out .2s;
+        &:hover {
+          background-color: #212529;
+        }
+      }
+    }
+  }
+
+  &-mainButtonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: white;
+    // border: 1px solid #ced4da;
+    width: 130px;
+    height: 70px;
+    margin-right: 500px;
+    margin-left: 80px;
+    // border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-img {
+      max-width: 180px;
+      max-height: 180px;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &-loginButtonDiv {
+    width: 100px;
+    height: 40px;
+    // border: 1px solid black;
+    // margin-left: 0px;
+    margin-left: 100px;
+    &-buttons {
+      width: 100%;
+      height: 100%;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      cursor: pointer;
+      outline: 0px;
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      border: none;
+      font-size: 15px;
+    }
+  }
+}

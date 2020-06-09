@@ -1,0 +1,434 @@
+@import 'styles/color/color_scheme.scss';
+@import 'styles/typography/typography_scheme.scss';
+
+
+.PetitionDetailTemplate {
+  width: 1300px;
+  min-height: 1000px;
+  border: 1px solid #adb5bd;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  z-index: 1;
+  flex-direction: row;
+  // align-items: center;
+  // justify-content: center;
+
+  &-contentsDiv {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    min-height: 1000px;
+
+    &-commentDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 900px;
+      min-height: 280px;
+      margin-bottom: 8%;
+
+      &-commentTemplate {
+        width: 100%;
+        height: 300px;
+      }
+
+      &-titleDiv {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 70px;
+        // border: 1px solid black;
+
+        &-title {
+          margin: auto auto auto 0px;
+          padding-left: 10px;
+          font-size: 23px;
+          color: #003366;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        }
+      }
+
+      &-commentWriteDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 130px;
+        border: 1px solid #f1f3f5;
+        background-color: #f8f9fa;
+        margin-bottom: 20px;
+
+        &-textDiv {
+          width: 700px;
+          height: 80px;
+
+          &-text {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            font-size: 15px;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+            padding-left: 5px;
+            padding-top: 5px;
+            outline: 0px;
+          }
+        }
+
+        &-sendButtonDiv {
+          width: 130px;
+          height: 80px;
+          margin-left: 30px;
+
+          &-sendButton {
+            border: 0px;
+            width: 100%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+            outline: 0px;
+            height: 100%;
+            background-color: #003366;
+          }
+        }
+      }
+
+      &-commentButtonDiv {
+        width: 100%;
+        height: 50px;
+        margin-top: 30px;
+
+        &-button {
+          width: 100%;
+          height: 100%;
+          font-size: 15px;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          padding-right: 15px;
+          cursor: pointer;
+          border: 0px;
+          outline: 0px;
+          background-color: #f8f9fa;
+        }
+      }
+    }
+
+    &-contentsBox {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 900px;
+      height: 500px;
+      padding: 10px;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      // border: 1px solid black;
+    }
+
+    &-titleDiv {
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 900px;
+      min-height: 380px;
+      border-bottom: 1px solid #adb5bd;
+
+      &-contentsTitleDiv {
+        // border: 1px solid black
+        font-size: 20px;
+        padding-bottom: 10px;
+        color: #003366;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        margin: auto auto auto 0px;
+      }
+
+      &-guideDiv {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+        height: 100px;
+        // border: 1px solid black;
+        font-family: $NOTO_SANS_KR_DEMILIGHT, $NOTO_SANS_REGULAR;
+        font-size: 30px;
+        margin: auto auto auto auto;
+      }
+
+      &-title {
+        display: flex;
+        // align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 30px;
+        color: #003366;
+        padding-top: 20px;
+        width: 700px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        min-height: 150px;
+        // border: 1px solid black;
+      }
+
+      &-voteDiv {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 23px;
+        width: 100%;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        height: 70px;
+        // border: 1px solid black;
+      }
+
+      &-infoDiv {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        min-width: 800px;
+        height: 60px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #f1f3f5; 
+
+        &-categoryDiv {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 200px;
+          height: 100%;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        }
+      }
+
+      &-statusDiv {
+        z-index: 4;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 700px;
+        height: 70px;
+        margin-bottom: 30px;
+        // border: 1px solid black;
+
+        &-graph {
+          z-index: 5;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: row;
+          // align-items: center;
+          justify-content: space-between;
+          width: 700px;
+          height: 35px;
+          border-top: 1px solid #dee2e6;
+
+          &-start {
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            height: 35px;
+            // border: 1px solid black;
+            font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+
+            &-iconDiv {
+              z-index: 7;
+              margin-top: -12px;
+              margin-bottom: 5px;
+              position: relative;
+              width: 15px;
+              height: 15px;
+
+              &-icon {
+                width: 100%;
+                height: 100%;
+                color: #dee2e6;
+              }
+
+              &-iconColor {
+                color: #003366;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-bannerDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    min-height: 1000px;
+    border-left: 1px solid #adb5bd;
+
+    &-adminButtonsDiv {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100px;
+
+      &-allowButton {
+        width: 250px;
+        height: 60px;
+        margin-top: 50px;
+        border: none;
+        background-color: #003366;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        font-size: 15px;
+        color: white;
+        outline: 0px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &-deleteButtonDiv {
+        width: 120px;
+        height: 60px;
+        margin-right: 10px;
+
+        &-deleteButton {
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: #003366;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          font-size: 15px;
+          color: white;
+          outline: 0px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &-blindButtonDiv {
+        width: 120px;
+        height: 60px;
+
+        &-blindButton {
+          width: 100%;
+          height: 100%;
+          border: none;
+          font-size: 15px;
+          background-color: #003366;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          color: white;
+          outline: 0px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    &-petitionWriteDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 270px;
+      border-bottom: 1px solid #dee2e6;
+
+      &-title {
+        display: flex;
+        align-items: center;
+        width: 280px;
+        height: 50px;
+        // border: 1px solid black;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      }
+
+      &-imgDiv {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        height: 180px;
+        border: 1px solid #dee2e6;
+        background-color: #f8f9fa;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &-img {
+          width: 250px;
+          height: 150px;
+        }
+      }
+    }
+
+    &-schoolYoutubeDiv {
+      display: flex;
+      flex-direction: column;
+      font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 300px;
+      border-bottom: 1px solid #dee2e6;
+
+      &-schoolYoutube {
+        width: 100px;
+        height: 200px;
+        border: 1px solid white;
+      }
+
+      &-title {
+        width: 100%;
+        height: 40px;
+        margin-left: 18px;
+        margin-top: -20px;
+      }
+    }
+
+    &-pushPetitionDiv {
+      width: 100%;
+      height: 300px;
+      // border: 1px solid black;
+    }
+
+    &-allowedPetitionDiv {
+      width: 100%;
+      min-height: 220px;
+      border-bottom: 1px solid #dee2e6;
+      margin-top: 10px;
+
+      &-title {
+        width: 100%;
+        padding-left: 10px;
+        font-size: 20px;
+        font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+        color: #003366;
+        height: 30px;
+      }
+    }
+  }
+}
+
+.categoryColor {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 500;
+  color: #003366;
+}
+
+.statusColor {
+  color: black;
+}

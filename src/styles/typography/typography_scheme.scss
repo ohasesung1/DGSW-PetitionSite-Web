@@ -1,0 +1,99 @@
+$NOTO_SANS_URL: '../../assets/font/NotoSans/NotoSans';
+$NOTO_SANS_KR_URL: '../../assets/font/NotoSansKR/NotoSansKR';
+$CAFE24_OH_SQUARE_URL: '../../assets/font/Cafe24Ohsquare/Cafe24Ohsquare';
+
+@mixin font_face($name, $url) {
+  font-family: $name;
+  font-display: block;  // 웹 폰트 로딩처리
+  src:url($url + '.eot');
+  src:url($url + '.eot?#iefix') format('embedded-opentype'),
+      url($url + '.woff2') format('woff2'),
+      url($url + '.woff') format('woff'),
+      url($url + '.ttf') format('truetype');
+}
+
+$NOTO_SANS_THIN: 'Noto Sans Thin';
+$NOTO_SANS_LIGHT: 'Noto Sans Light';
+$NOTO_SANS_REGULAR: 'Noto Sans Regular';
+$NOTO_SANS_MEDIUM: 'Noto Sans Medium';
+$NOTO_SANS_SEMIBOLD: 'Noto Sans SemiBold';
+$NOTO_SANS_BOLD: 'Noto Sans Bold';
+$NOTO-SANS_BLACK: 'Noto Sans Black';
+
+@font-face { 
+  @include font_face($NOTO_SANS_THIN, $NOTO_SANS_URL + '-Thin');
+}
+@font-face {
+  @include font_face($NOTO_SANS_LIGHT, $NOTO_SANS_URL + '-Light');
+}
+@font-face {
+  @include font_face($NOTO_SANS_REGULAR, $NOTO_SANS_URL + '-Regular');
+}
+@font-face {
+  @include font_face($NOTO_SANS_MEDIUM, $NOTO_SANS_URL + '-Medium');
+}
+@font-face {
+  @include font_face($NOTO_SANS_SEMIBOLD, $NOTO_SANS_URL + '-SemiBold');
+}
+@font-face {
+  @include font_face($NOTO_SANS_BOLD, $NOTO_SANS_URL + '-Bold');
+}
+@font-face {
+  @include font_face($NOTO-SANS_BLACK, $NOTO_SANS_URL + '-Black');
+}
+
+$NOTO_SANS_KR_THIN: 'Noto Sans KR Thin';
+$NOTO_SANS_KR_LIGHT: 'Noto Sans KR Light';
+$NOTO_SANS_KR_DEMILIGHT: 'Noto Sans KR DemiLight';
+$NOTO_SANS_KR_REGULAR: 'Noto Sans KR Regular';
+$NOTO_SANS_KR_MEDIUM: 'Noto Sans KR Medium';
+$NOTO_SANS_KR_BOLD: 'Noto Sans KR Bold';
+$NOTO_SANS_KR_BLACK: 'Noto Sans KR Black';
+
+@font-face {
+  @include font_face($NOTO_SANS_KR_THIN, $NOTO_SANS_KR_URL + '-Thin');
+}
+@font-face {
+  @include font_face($NOTO_SANS_KR_LIGHT, $NOTO_SANS_KR_URL + '-Light');
+}
+@font-face {
+  @include font_face($NOTO_SANS_KR_DEMILIGHT, $NOTO_SANS_KR_URL + '-DemiLight');
+}
+@font-face {
+  @include font_face($NOTO_SANS_KR_REGULAR, $NOTO_SANS_KR_URL + '-Regular');
+}
+@font-face {
+  @include font_face($NOTO_SANS_KR_MEDIUM, $NOTO_SANS_KR_URL + '-Medium');
+}
+@font-face {
+  @include font_face($NOTO_SANS_KR_BOLD, $NOTO_SANS_KR_URL + '-Bold');
+}
+@font-face {
+  @include font_face($NOTO_SANS_KR_BLACK, $NOTO_SANS_KR_URL + '-Black');
+}
+
+$CAFE24_OH_SQUARE: 'Cafe24 Oh Square';
+
+@font-face {
+  @include font_face($CAFE24_OH_SQUARE, $CAFE24_OH_SQUARE_URL);
+}
+
+/* js에서 font-size를 적용하려면 typography_scheme.js를
+  import하여 작업하면 된다. 
+
+  ex) import { typography } from 'styles/typography/typography_scheme.js';
+      const { size } = typography;
+
+      <div ... fontSize: size.s1 ></div>
+*/
+
+$font_size_1: 12px; 
+$font_size_2: 14px; 
+$font_size_3: 16px; 
+$font_size_4: 18px; 
+$font_size_5: 20px; 
+$font_size_6: 22px; 
+$font_size_7: 24px; 
+$font_size_8: 26px;
+$font_size_9: 28px;
+$font_size_10: 40px;
