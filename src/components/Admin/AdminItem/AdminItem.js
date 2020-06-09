@@ -15,7 +15,7 @@ const AdminItem = ({ item, addAuthToMember, deleteMemberAuth }) => {
   const joinDateFormat = moment(joinDate).format('YYYY-MM-DD');
 
   useEffect(() => {
-    if (accessLevel !== 2) {
+    if (accessLevel === 0 || accessLevel === 1) {
       isSetDeleteAuth(true);
     };  
   }, []);

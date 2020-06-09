@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SignUpTemplate from 'components/Sign/SignUpTemplate/SignUpTemplate';
 import { inject, observer } from 'mobx-react';
 import GroupingState from 'lib/HookState/GroupingState';
+import sha512 from 'js-sha512';
 
 const SignUpContainer = ({ store, setIsSignUp, setIsLogin }) => {
   const { handleSignUp, handelCheckId } = store.sign;
@@ -64,7 +65,7 @@ const SignUpContainer = ({ store, setIsSignUp, setIsLogin }) => {
     if (isCheckPw) {
       let data = {
         id,
-        pw,
+        pw: sha512(pw),
         name,
         grade,
         number,
@@ -79,7 +80,8 @@ const SignUpContainer = ({ store, setIsSignUp, setIsLogin }) => {
             contents: '회원가입 완료.'
           });
           
-          
+          setIsSignUp(false);
+          setIsLogin(true);
         })
         .catch((error) => {
           const { status } = error.response;
