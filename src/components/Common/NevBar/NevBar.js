@@ -29,7 +29,7 @@ const NevBar = ({ url, store, history, isBackground }) => {
 
       ls.removeAll();
     }
-    if (propUrl === '/admin' && (token === 'empty' || userInfo.accessLevel === 2)) {
+    if (propUrl === '/admin' && (token === 'empty' || userInfo.accessLevel === 2 || userInfo.accessLevel === 1)) {
       modal({
         title: 'Warning!',
         stateType: 'warning',

@@ -139,9 +139,9 @@ const PetitionDetailContainer = ({ store, history }) => {
     const token = TokenVerification() === 'localT' ? localStorage.getItem('petition-token') : sessionStorage.getItem('petition-token'); 
 
     if (token) {
-      if (userInfo.accessLevel === 0) {
+      if (userInfo.accessLevel === 0 || userInfo.accessLevel === 1) {
         setAdminAuth(true);
-      } else if (userInfo.accessLevel === 1) {
+      } else if (userInfo.accessLevel === 2) {
         return;
       }
     } else {
