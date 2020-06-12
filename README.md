@@ -6,7 +6,7 @@
 
 개발 인원: 1명
 
-개발 분야: 백엔드, 프론트 엔드 (Node.js, React.js)
+개발 분야: 백엔드, 프론트 엔드 (Node.js, React.js) 해당 레포지포리는 web 전용 입니다.
 
 GITHUB:  **[https://github.com/ohasesung1?tab=repositories](https://github.com/ohasesung1?tab=repositories)**
 
