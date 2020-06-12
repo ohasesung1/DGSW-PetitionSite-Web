@@ -27,6 +27,8 @@ GITHUB:  **[https://github.com/ohasesung1?tab=repositories](https://github.com/o
     2. 관리자에 의한 학생회 권한 추가
     3. 학생회 목록 조회 및 권한 삭제
 
+페이지 종류
+
 메인 페이지
 
 청원 작성 페이지
