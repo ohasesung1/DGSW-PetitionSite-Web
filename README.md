@@ -1,4 +1,4 @@
-<img src="https://notion-emojis.s3-us-west-2.amazonaws.com/v0/svg-twitter/1f3eb.svg" width=50 height=50/>
+<img src="https://notion-emojis.s3-us-west-2.amazonaws.com/v0/svg-twitter/1f3eb.svg" width=30 height=30/>
 
 ## "학생회 청원 사이트는 기존에 있는 국민 청원 사이트를 모델로 만든 사이트로 교내 학생 전용으로 학생회에 대한 건의사항 혹은 학교에 요구하는 점들을 청원 형식으로 요청하고 그에 따라 학생회가 처리하는 형식의 청원 사이트 입니다."
 
