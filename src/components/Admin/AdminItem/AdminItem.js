@@ -17,7 +17,7 @@ const AdminItem = ({ item, addAuthToMember, deleteMemberAuth }) => {
   useEffect(() => {
     if (accessLevel === 0 || accessLevel === 1) {
       isSetDeleteAuth(true);
-    };  
+    };
   }, []);
   
   return (

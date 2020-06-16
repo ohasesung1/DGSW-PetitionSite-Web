@@ -59,7 +59,82 @@ const SignUpContainer = ({ store, setIsSignUp, setIsLogin }) => {
 
       return;
     }
+    if (pw.length === 0 || checkPw.length === 0) {
+      await modal({
+        title: 'Error!',
+        stateType: 'error',
+        contents: '빈칸을 채워주세요.'
+      });
 
+      return;
+    } else if (pw !== checkPw) {
+      await modal({
+        title: 'Error!',
+        stateType: 'error',
+        contents: '비밀번호가 다릅니다.'
+      });
+
+      return;
+    }  else if (!(/^[a-zA-Z0-9!@#$%^*+=-]{7,20}$/).test(pw)) {
+      await modal({
+        title: 'Error!',
+        stateType: 'error',
+        contents: '비밀번호 형식을 지키세요!!'
+      });
+
+      return;
+    }
+    let data = {
+      id,
+      pw: sha512(pw),
+      name,
+      grade,
+      number,
+      studentClass
+    };
+
+    await handleSignUp(data)
+      .then((response) => {
+        modal({
+          title: 'Success!',
+          stateType: 'success',
+          contents: '회원가입 완료.'
+        });
+        
+        setIsSignUp(false);
+        setIsLogin(true);
+      })
+      .catch((error) => {
+        const { status } = error.response;
+        if (status === 403) {
+          modal({
+            title: 'Warning!',
+            stateType: 'warning',
+            contents: '이미 가입된 회원.'
+          });
+    
+          return;
+        } else  if (status === 400) {
+          modal({
+            title: 'Warning!',
+            stateType: 'warning',
+            contents: '양식이 맞지 않습니다.'
+          });
+    
+          return;
+        }  else if (status === 500) {
+          modal({
+            title: 'Error!',
+            stateType: 'error',
+            contents: '서버 에러!'
+          });
+    
+          return;
+        }
+      });
+  };
+
+  const checkNewPwForm = async () => {
     if (pw.length === 0 || checkPw.length === 0) {
       await modal({
         title: 'Error!',

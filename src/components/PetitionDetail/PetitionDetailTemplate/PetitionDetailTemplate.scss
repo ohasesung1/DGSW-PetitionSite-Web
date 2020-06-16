@@ -315,6 +315,26 @@
         }
       }
 
+      &-notBlindButtonDiv {
+        width: 250px;
+        height: 60px;
+
+        &-blindButton {
+          width: 100%;
+          height: 100%;
+          border: none;
+          font-size: 15px;
+          background-color: #003366;
+          font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+          color: white;
+          outline: 0px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
       &-blindButtonDiv {
         width: 120px;
         height: 60px;

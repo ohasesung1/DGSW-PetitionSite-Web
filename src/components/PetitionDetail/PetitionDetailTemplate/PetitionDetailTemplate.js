@@ -155,9 +155,17 @@ useEffect(() => {
                 <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-deleteButtonDiv-deleteButton')} onClick={() => handlePetitionDelete(idx)}>청원 삭제</button>
               </div>
               <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-blindButtonDiv')}> 
-                <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-blindButtonDiv-blindButton')} onClick={() => handleBlindPetition(idx)}>청원 블라인드</button>
+                <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-blindButtonDiv-blindButton')} onClick={() => handleBlindPetition(idx, 1)}>청원 블라인드</button>
               </div>
             </div>
+            {
+              blind ?
+              <div className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-notBlindButtonDiv')}> 
+                <button className={cx('PetitionDetailTemplate-bannerDiv-adminButtonsDiv-blindButtonDiv-blindButton')} onClick={() => handleBlindPetition(idx, 0)}>청원 블라인드 해제</button>
+              </div>
+              : <></>
+            }
+
             </>
             : <></>
         }
