@@ -59,7 +59,6 @@ const SignUpContainer = ({ store, setIsSignUp, setIsLogin }) => {
 
       return;
     }
-
     if (pw.length === 0 || checkPw.length === 0) {
       await modal({
         title: 'Error!',
@@ -160,9 +159,55 @@ const SignUpContainer = ({ store, setIsSignUp, setIsLogin }) => {
       });
 
       return;
-    } else {
-      setIsCheckPw(true);
     }
+    let data = {
+      id,
+      pw: sha512(pw),
+      name,
+      grade,
+      number,
+      studentClass
+    };
+
+    await handleSignUp(data)
+      .then((response) => {
+        modal({
+          title: 'Success!',
+          stateType: 'success',
+          contents: '회원가입 완료.'
+        });
+        
+        setIsSignUp(false);
+        setIsLogin(true);
+      })
+      .catch((error) => {
+        const { status } = error.response;
+        if (status === 403) {
+          modal({
+            title: 'Warning!',
+            stateType: 'warning',
+            contents: '이미 가입된 회원.'
+          });
+    
+          return;
+        } else  if (status === 400) {
+          modal({
+            title: 'Warning!',
+            stateType: 'warning',
+            contents: '양식이 맞지 않습니다.'
+          });
+    
+          return;
+        }  else if (status === 500) {
+          modal({
+            title: 'Error!',
+            stateType: 'error',
+            contents: '서버 에러!'
+          });
+    
+          return;
+        }
+      });
   };
 
   const idCheck = async () => {
@@ -218,10 +263,7 @@ const SignUpContainer = ({ store, setIsSignUp, setIsLogin }) => {
     
           return;
         }
-
       });
-
-
   };
 
   return (

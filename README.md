@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://notion-emojis.s3-us-west-2.amazonaws.com/v0/svg-twitter/1f3eb.svg" width=30 height=30/>
 
-## Available Scripts
+## "학생회 청원 사이트는 기존에 있는 국민 청원 사이트를 모델로 만든 사이트로 교내 학생 전용으로 학생회에 대한 건의사항 혹은 학교에 요구하는 점들을 청원 형식으로 요청하고 그에 따라 학생회가 처리하는 형식의 청원 사이트 입니다."
 
-In the project directory, you can run:
+팀: 개인 프로젝트
 
-### `yarn start`
+개발 기간: 약1개월
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+개발 인원: 1명
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+개발 분야: 백엔드, 프론트 엔드 (Node.js, React.js) 해당 레포지포리는 web 전용 입니다.
 
-### `yarn test`
+GITHUB:  **[https://github.com/ohasesung1?tab=repositories](https://github.com/ohasesung1?tab=repositories)**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 기능 명세
 
-### `yarn build`
+- **청원 기능**
+    1. 청원 작성
+    2. 청원 동의 투표
+    3. 청원 승인/블라인드/삭제
+    4. 청원 카테고리별 조회
+    5. 투표율 별 조회, 승인된 청원 조회 ...
+    6. 학생회 전용 청원 조회
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+메인 페이지
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- **사용자**
+    1. 로그인/회원가입
+    2. 관리자에 의한 학생회 권한 추가
+    3. 학생회 목록 조회 및 권한 삭제
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## 페이지 종류
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+메인 페이지
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+청원 작성 페이지
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+권한 조작 페이지
