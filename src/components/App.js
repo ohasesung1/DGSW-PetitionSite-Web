@@ -9,42 +9,42 @@ function App() {
       <Switch>
           <Route
             exact
-            path='/sign'
+            path='/DGSW-PetitionSite-Web/sign'
             render={() => <Pages.Sign/>}
             />
       </Switch>
       <Switch>
           <Route
             exact
-            path='/'
+            path='/DGSW-PetitionSite-Web'
             render={() => <Pages.Petition/>}
             />
       </Switch>
       <Switch>
           <Route
             exact
-            path='/petition-write'
+            path='/DGSW-PetitionSite-Web/petition-write'
             render={() => <Pages.PetitionWrite/>}
             />
       </Switch>
       <Switch>
           <Route
             exact
-            path='/admin'
+            path='/DGSW-PetitionSite-Web/admin'
             render={() => <Pages.Admin/>}
             />
       </Switch>
       <Switch>
           <Route
             exact
-            path='/petition-detail'
+            path='/DGSW-PetitionSite-Web/petition-detail'
             render={() => <Pages.PetitionDetail/>}
             />
       </Switch>
       <Switch>
           <Route
             exact
-            path='/student-council'
+            path='/DGSW-PetitionSite-Web/student-council'
             render={() => <Pages.StudentCouncil/>}
             />
       </Switch>

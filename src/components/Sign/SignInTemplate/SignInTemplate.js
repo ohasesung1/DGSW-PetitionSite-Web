@@ -18,10 +18,6 @@ const SignInTemplate = ({ idObj, pwObj, userSignIn, isSesstionObj, guestLogin, s
       setIsSesstion(true);
     }
   };
-  const handleKeyPress = event => {
-    if (event.keyCode === 13) userSignIn();
-  };
-
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       userSignIn();
