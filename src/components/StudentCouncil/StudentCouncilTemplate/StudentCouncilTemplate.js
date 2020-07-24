@@ -7,6 +7,7 @@ import { FiSearch } from 'react-icons/fi';
 const cx = classNames.bind(style);
 
 const StudentCouncilTemplate = ({ petitions, type, handleType, studentPetitionItemIndex }) => {
+
   if (type === 'waiting') {
     type = '투표율 60%';
   } else if (type === 'blind') {
@@ -23,8 +24,8 @@ const StudentCouncilTemplate = ({ petitions, type, handleType, studentPetitionIt
               {
                 <>
                     <div className={cx('StudentCouncilTemplate-header-title-categoryDiv-buttonDiv')}>
-                      <button className={cx('StudentCouncilTemplate-header-title-categoryDiv-buttonDiv-NotAllowButton')} onClick={() => handleType('waiting')}>승인 <br/>검토 중 청원</button>
-                      <button className={cx('StudentCouncilTemplate-header-title-categoryDiv-buttonDiv-blindButton')} onClick={() => handleType('blind')}>블라인드<br/> 처리 된 청원</button>
+                      <button className={cx('StudentCouncilTemplate-header-title-categoryDiv-buttonDiv-NotAllowButton', { 'selectButtonStyle': type === '투표율 60%' })} onClick={() => handleType('waiting')}>승인 <br/>검토 중 청원</button>
+                      <button className={cx('StudentCouncilTemplate-header-title-categoryDiv-buttonDiv-blindButton', { 'selectButtonStyle': type === '블라인드 처리된' })} onClick={() => handleType('blind')}>블라인드<br/> 처리 된 청원</button>
                     </div>
                 </>
               }
@@ -45,7 +46,11 @@ const StudentCouncilTemplate = ({ petitions, type, handleType, studentPetitionIt
             </div>
           </div>
       </div>
-        {petitions}
+        {
+          petitions.length !== 0 ? 
+            petitions 
+          : <div className={cx('notFoundPeition')}>청원이 없습니다.</div>
+        }
     </div>
     <div className={cx('ItemIndexListTemplate')}>
       {studentPetitionItemIndex}

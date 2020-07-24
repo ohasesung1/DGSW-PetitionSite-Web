@@ -6,11 +6,9 @@ import classNames from 'classnames';
 
 const cx = classNames.bind(style);
 
-const AdminItem = ({ item, addAuthToMember, deleteMemberAuth }) => {
+const AdminItem = ({ item, addAuthToMember, deleteMemberAuth, isDeleteAuth,isSetDeleteAuth }) => {
 
   const { id, grade, studentClass, number, name, joinDate, accessLevel } = item;
-
-  const [isDeleteAuth, isSetDeleteAuth] = useState(false);
 
   const joinDateFormat = moment(joinDate).format('YYYY-MM-DD');
 

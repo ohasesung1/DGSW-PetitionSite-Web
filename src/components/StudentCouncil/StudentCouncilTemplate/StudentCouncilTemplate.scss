@@ -48,10 +48,11 @@
           &-blindButton {
             display: flex;
             justify-content: center;
-            background-color: white;
+            background-color: #003366;
             border: 2px solid #003366;
             font-size: 11px;
-            color: #003366;
+            color: white;
+
             outline: 0px;
             align-items: center;
             width: 90px;
@@ -61,18 +62,18 @@
             transition: ease-out .2s;
 
             &:hover {
-              background-color: #003366;
-              color: white;
+              background-color: white;
+              color: #003366;
             }
           }
 
           &-NotAllowButton {
             display: flex;
             justify-content: center;
-            background-color: white;
+            background-color: #003366;
             border: 2px solid #003366;
             font-size: 11px;
-            color: #003366;
+            color: white;
             outline: 0px;
             align-items: center;
             width: 90px;
@@ -82,8 +83,8 @@
             transition: ease-out .2s;
 
             &:hover {
-              background-color: #003366;
-              color: white;
+              background-color: white;
+              color: #003366;
             }
           }
         }
@@ -151,4 +152,22 @@
       }
     }
   }
+}
+
+
+.notFoundPeition {
+  width: 100%;
+  height: 100%;
+  // border: 1px solid black;
+  font-size: 20px;
+  padding-top: 30px;
+  text-align: center;
+  font-family: $NOTO_SANS_KR_MEDIUM, $NOTO_SANS_MEDIUM;
+}
+
+.selectButtonStyle {
+  // width: 100%;
+  // height: 100%;
+  background-color: white;
+  color: #003366;
 }
