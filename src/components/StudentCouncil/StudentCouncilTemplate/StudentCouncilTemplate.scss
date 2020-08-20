@@ -10,13 +10,11 @@
   width: 1000px;
   min-height: 600px;
   margin-top: 80px;
-  // border: 1px solid black;
 
   &-header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    // border: 1px solid black;
 
     &-title {
       display: flex;
@@ -37,7 +35,6 @@
         height: 40px;
         margin: auto 0px auto auto;
         font-size: 15px;
-        // border: 1px solid black;
 
         &-buttonDiv {
           width: 100%;
@@ -100,8 +97,6 @@
       align-items: center;
       width: 100%;
       height: 50px;
-      // border-bottom: 1px solid #adb5bd;
-      // margin-bottom: 5px;
 
       &-category {
         display: flex;
@@ -112,7 +107,6 @@
         width: 150px;
         height: 100%;
 
-        // border: 1px solid black;
       }
 
       &-title {
@@ -124,7 +118,6 @@
         width: 570px;
         height: 100%;
 
-        // border: 1px solid black;
       }
 
       &-date {
@@ -136,7 +129,6 @@
         width: 130px;
         height: 100%;
 
-        // border: 1px solid black;
       }
 
       &-voteCount {
@@ -148,7 +140,6 @@
         width: 150px;
         height: 100%;
 
-        // border: 1px solid black;
       }
     }
   }
@@ -158,7 +149,6 @@
 .notFoundPeition {
   width: 100%;
   height: 100%;
-  // border: 1px solid black;
   font-size: 20px;
   padding-top: 30px;
   text-align: center;
@@ -166,8 +156,6 @@
 }
 
 .selectButtonStyle {
-  // width: 100%;
-  // height: 100%;
   background-color: white;
   color: #003366;
 }
