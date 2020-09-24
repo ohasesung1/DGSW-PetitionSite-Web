@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/DGSW-PetitionSite-Web/static/css/main.7af18cc8.chunk.css",
+    "main.js": "/DGSW-PetitionSite-Web/static/js/main.fb2f8060.chunk.js",
+    "main.js.map": "/DGSW-PetitionSite-Web/static/js/main.fb2f8060.chunk.js.map",
+    "runtime-main.js": "/DGSW-PetitionSite-Web/static/js/runtime-main.15499729.js",
+    "runtime-main.js.map": "/DGSW-PetitionSite-Web/static/js/runtime-main.15499729.js.map",
+    "static/js/2.649cc9fd.chunk.js": "/DGSW-PetitionSite-Web/static/js/2.649cc9fd.chunk.js",
+    "static/js/2.649cc9fd.chunk.js.map": "/DGSW-PetitionSite-Web/static/js/2.649cc9fd.chunk.js.map",
+    "index.html": "/DGSW-PetitionSite-Web/index.html",
+    "precache-manifest.a1416d9d4339221c3495dcb1c852e11a.js": "/DGSW-PetitionSite-Web/precache-manifest.a1416d9d4339221c3495dcb1c852e11a.js",
+    "service-worker.js": "/DGSW-PetitionSite-Web/service-worker.js",
+    "static/css/main.7af18cc8.chunk.css.map": "/DGSW-PetitionSite-Web/static/css/main.7af18cc8.chunk.css.map",
+    "static/js/2.649cc9fd.chunk.js.LICENSE.txt": "/DGSW-PetitionSite-Web/static/js/2.649cc9fd.chunk.js.LICENSE.txt",
+    "static/media/Button.scss": "/DGSW-PetitionSite-Web/static/media/NotoSansKR-Thin.d238a5b5.ttf",
+    "static/media/backgroundImage2.jpg": "/DGSW-PetitionSite-Web/static/media/backgroundImage2.9ac8a3cc.jpg",
+    "static/media/dgsw_logo.png": "/DGSW-PetitionSite-Web/static/media/dgsw_logo.ccd810f9.png",
+    "static/media/schoolImage.jpg": "/DGSW-PetitionSite-Web/static/media/schoolImage.105dcb1e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15499729.js",
+    "static/js/2.649cc9fd.chunk.js",
+    "static/css/main.7af18cc8.chunk.css",
+    "static/js/main.fb2f8060.chunk.js"
+  ]
+}
